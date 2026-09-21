@@ -16,8 +16,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=DM+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="assets/css/base.css?v=09202257">
-
+<link rel="stylesheet" href="assets/css/base.css?v=09211036">
+<link rel="stylesheet" href="assets/css/admin.css?v=09211036">
 <noscript><style>.u-reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -59,7 +59,333 @@
   </div>
 </header>
 
-<main id="page-admin" class="l-main"><section class="c-sec"><div class="l-container"><header class="c-sec__head"><p class="c-sec__label">No.00 — IN PROGRESS</p><h1 class="c-sec__title">admin（制作中）</h1></header></div></section></main>
+<main id="page-admin" class="l-main"><!-- ============================================================
+     admin — 運営管理イメージ（chrome=admin。サンプルバー＋dockのみ共通）
+     管理画面の枠（左ナビ＋上部バー＋メイン）はこの断片内で自作する。
+     ============================================================ -->
+
+<div class="p-admin-banner" role="note">
+  <p class="l-container p-admin-banner__inner">
+    <span class="u-mono p-admin-banner__tag">NOTICE</span>
+    <span class="p-admin-banner__text">説明用のイメージです。実際のShopify管理画面とは異なります。レンタル運営で毎日行う確認と承認の流れを示しています。</span>
+  </p>
+</div>
+
+<section class="p-admin-shell" id="page-admin-shell" aria-label="運営管理コンソール">
+  <div class="l-container p-admin-shellInner">
+
+    <header class="p-admin-head u-reveal" style="--d:0s">
+      <div class="p-admin-head__title">
+        <p class="p-admin-head__eyebrow u-mono">No.07 — OPERATION CONSOLE</p>
+        <h1 class="p-admin-head__h1 u-mincho">運営管理</h1>
+        <p class="p-admin-head__lead">審査・与信・住所照合の結果をもとに、発送してよいかを判断する画面です。低リスクの注文は、確認して承認するだけで完了します。</p>
+      </div>
+      <div class="p-admin-legend" aria-label="実装種別の凡例">
+        <span class="p-admin-legend__label u-mono">LEGEND</span>
+        <span class="p-admin-legend__list">
+          <span class="c-badge c-badge--native">標準機能</span>
+          <span class="c-badge c-badge--app">アプリ</span>
+          <span class="c-badge c-badge--custom">個別開発</span>
+          <span class="c-badge c-badge--external">外部サービス</span>
+          <span class="c-badge c-badge--ops">手動運用</span>
+        </span>
+      </div>
+    </header>
+
+    <div class="p-admin-frame">
+
+      <nav class="p-admin-nav" data-admin-nav aria-label="画面の切り替え">
+        <a class="p-admin-nav__item is-current" data-tab-link="today" href="#today" aria-current="page">
+          <span class="p-admin-nav__no u-mono">01</span>
+          <span class="p-admin-nav__name">今日のやること</span>
+        </a>
+        <a class="p-admin-nav__item" data-tab-link="order" href="#order-T-1042">
+          <span class="p-admin-nav__no u-mono">02</span>
+          <span class="p-admin-nav__name">注文詳細</span>
+        </a>
+        <a class="p-admin-nav__item" data-tab-link="rules" href="#rules">
+          <span class="p-admin-nav__no u-mono">03</span>
+          <span class="p-admin-nav__name">自動化ルール</span>
+        </a>
+      </nav>
+
+      <div class="p-admin-main" data-admin-main>
+
+        <!-- ============================================================
+             01 — 今日のやること
+             ============================================================ -->
+        <section class="p-admin-panel" data-panel="today" id="panelToday">
+          <header class="p-admin-panelHead u-reveal" style="--d:0s">
+            <p class="p-admin-panelHead__eyebrow u-mono">No.01 — TODAY'S QUEUE</p>
+            <h2 class="p-admin-panelHead__title u-mincho">今日のやること</h2>
+            <p class="p-admin-panelHead__lead">件数を見て、対応が必要な注文から確認します。数字を押すと、その区分だけに絞り込めます。</p>
+          </header>
+
+          <div class="p-admin-metrics u-reveal" style="--d:.06s">
+            <button type="button" class="p-admin-metric" data-metric="review">
+              <p class="p-admin-metric__num u-wide" id="metricReview">—</p>
+              <p class="p-admin-metric__label">審査待ち</p>
+            </button>
+            <button type="button" class="p-admin-metric" data-metric="ship">
+              <p class="p-admin-metric__num u-wide" id="metricShip">—</p>
+              <p class="p-admin-metric__label">発送承認待ち</p>
+            </button>
+            <button type="button" class="p-admin-metric" data-metric="hold">
+              <p class="p-admin-metric__num u-wide" id="metricHold">—</p>
+              <p class="p-admin-metric__label">保留中</p>
+            </button>
+            <button type="button" class="p-admin-metric" data-metric="return">
+              <p class="p-admin-metric__num u-wide" id="metricReturn">—</p>
+              <p class="p-admin-metric__label">本日返却予定</p>
+            </button>
+          </div>
+
+          <p class="p-admin-tableIntro">
+            レンタルを申し込めるのは「承認済み」の目印を持つ会員だけです。
+            <span class="p-admin-badgeRow"><span class="c-badge c-badge--native">標準機能</span><span class="c-badge c-badge--custom">個別開発</span></span>
+          </p>
+
+          <aside class="c-memo" data-memo data-ref="N-06" data-type="native custom app" data-plan="standard" data-confidence="確認済">
+            <h4>承認済み会員だけが申込める仕組み</h4>
+            <p>審査に通った会員には「承認済み」の目印（タグ）を付けて管理します。目印のない会員には画面上で申込みを見せない、または止める形で制御します。より確実に止めたい場合はアプリを組み合わせます。</p>
+          </aside>
+
+          <div class="p-admin-tablewrap u-reveal" style="--d:.1s">
+            <div class="c-table-wrap">
+              <table class="c-table p-admin-table" id="orderTable">
+                <thead>
+                  <tr>
+                    <th>注文番号</th>
+                    <th>会員</th>
+                    <th>機材・期間</th>
+                    <th>リスク</th>
+                    <th>本人確認</th>
+                    <th>三点照合</th>
+                    <th>状態</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="orderTableBody"></tbody>
+              </table>
+            </div>
+            <div class="p-admin-cards" id="orderCards"></div>
+            <p class="p-admin-filterNote" id="filterNote" hidden>
+              <span class="u-mono">絞り込み中</span>
+              <button type="button" class="c-btn c-btn--ghost c-btn--sm" id="filterClear">解除する</button>
+            </p>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             02 — 注文詳細
+             ============================================================ -->
+        <section class="p-admin-panel" data-panel="order" id="panelOrder" hidden>
+          <header class="p-admin-panelHead u-reveal" style="--d:0s">
+            <p class="p-admin-panelHead__eyebrow u-mono">No.02 — ORDER DETAIL</p>
+            <h2 class="p-admin-panelHead__title u-mincho">注文詳細</h2>
+            <p class="p-admin-panelHead__lead">リスク判定・本人確認・住所照合の結果を1件ずつ確認し、発送してよいかを判断します。</p>
+          </header>
+
+          <div class="p-admin-orderChips" id="orderChips">
+            <a class="c-chip p-admin-chip" href="#order-T-1042" data-order-chip="#T-1042"><b>#T-1042</b><small>三浦 健一・低リスク</small></a>
+            <a class="c-chip p-admin-chip" href="#order-T-1043" data-order-chip="#T-1043"><b>#T-1043</b><small>高木 翔・中リスク</small></a>
+            <a class="c-chip p-admin-chip" href="#order-T-1044" data-order-chip="#T-1044"><b>#T-1044</b><small>新規会員・高リスク</small></a>
+          </div>
+
+          <div class="p-admin-orderHead u-reveal" style="--d:.04s">
+            <div class="p-admin-orderHead__main">
+              <p class="p-admin-orderHead__id u-wide" id="orderId">#T-1042</p>
+              <p class="p-admin-orderHead__item" id="orderItem">—</p>
+              <p class="p-admin-orderHead__member u-mono" id="orderMember">—</p>
+            </div>
+            <span class="c-badge" id="orderRiskBadge">RISK</span>
+          </div>
+
+          <div class="p-admin-reasonBlock">
+            <p class="p-admin-block__label u-mono">リスク判定の理由<span class="c-badge c-badge--native p-admin-inlineBadge">標準機能</span></p>
+            <p class="p-admin-orderReason" id="orderReason">—</p>
+          </div>
+
+          <div class="p-admin-noteWrap" id="orderCancelNotice" hidden>
+            <div class="c-notice c-notice--warn">
+              <span class="c-notice__mark u-mono">NOTE</span>
+              <p>自動で保留された注文です。カード名義と会員名の不一致、短時間の決済失敗が確認されているため、キャンセルを推奨します。</p>
+            </div>
+          </div>
+
+          <div class="p-admin-grid2 u-reveal" style="--d:.06s">
+            <div class="p-admin-block">
+              <p class="p-admin-block__label u-mono">本人確認<span class="p-admin-badgeRow"><span class="c-badge c-badge--external p-admin-inlineBadge">外部サービス</span><span class="c-badge c-badge--ops p-admin-inlineBadge">手動運用</span></span></p>
+              <p class="p-admin-block__body" id="orderKyc">—</p>
+            </div>
+            <div class="p-admin-block">
+              <p class="p-admin-block__label u-mono">決済</p>
+              <p class="p-admin-block__body" id="orderPayment">—</p>
+            </div>
+          </div>
+
+          <aside class="c-memo" data-memo data-ref="N-05" data-type="external app ops" data-plan="start" data-confidence="一部要確認">
+            <h4>本人確認の仕組み</h4>
+            <p>身分証を自動でチェックする仕組みは、外部の本人確認サービスと別途契約が必要です。まずは書類の画像をスタッフが目視で確認する運用から始める方法もあります。書類の画像はShopify内には保存しません。</p>
+          </aside>
+
+          <div class="p-admin-matchBlock u-reveal" style="--d:.08s">
+            <p class="p-admin-block__label u-mono">三点照合<span class="p-admin-badgeRow"><span class="c-badge c-badge--native p-admin-inlineBadge">標準機能</span><span class="c-badge c-badge--ops p-admin-inlineBadge">手動運用</span></span></p>
+            <div class="p-admin-matchGrid" id="orderMatchGrid">
+              <div class="p-admin-matchCol">
+                <p class="p-admin-matchCol__h u-mono">本人確認書類の住所</p>
+                <p class="p-admin-matchCol__v" id="matchId">—</p>
+              </div>
+              <div class="p-admin-matchCol">
+                <p class="p-admin-matchCol__h u-mono">請求先住所</p>
+                <p class="p-admin-matchCol__v" id="matchBilling">—</p>
+              </div>
+              <div class="p-admin-matchCol">
+                <p class="p-admin-matchCol__h u-mono">配送先住所</p>
+                <p class="p-admin-matchCol__v" id="matchShipping">—</p>
+              </div>
+            </div>
+            <p class="p-admin-matchResult">
+              <span class="c-badge" id="matchBadge">—</span>
+              <span id="matchNote">—</span>
+            </p>
+            <aside class="c-memo" data-memo data-ref="N-11" data-type="native ops" data-plan="standard" data-confidence="一部要確認">
+              <h4>この照合は人の目で行います</h4>
+              <p>発送前に注文を一時的に止める「保留」の標準機能はありますが、本人確認書類・請求先・配送先の住所を自動で突き合わせる機能はありません。三点照合は人の目で行います。</p>
+            </aside>
+          </div>
+
+          <div class="p-admin-timelineWrap u-reveal" style="--d:.1s">
+            <p class="p-admin-block__label u-mono">審査タイムライン</p>
+            <ol class="p-admin-timeline" id="orderTimeline"></ol>
+          </div>
+
+          <aside class="c-memo" data-memo data-ref="N-09" data-type="native ops" data-plan="start" data-confidence="一部要確認">
+            <h4>不正注文の自動分析</h4>
+            <p>注文を自動でチェックし、不正利用の疑いを低・中・高で表示する標準機能です。この判定だけでは本人確認の代わりにはならず、人の目によるチェックと組み合わせて使います。</p>
+          </aside>
+
+          <div class="p-admin-actions u-reveal" style="--d:.12s">
+            <button class="c-btn c-btn--amber" type="button" id="actApprove">発送を承認</button>
+            <button class="c-btn c-btn--ghost" type="button" id="actHold">保留して確認メールを送る</button>
+            <button class="c-btn c-btn--ghost" type="button" id="actCancel">キャンセルする</button>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             03 — 自動化ルール
+             ============================================================ -->
+        <section class="p-admin-panel" data-panel="rules" id="panelRules" hidden>
+          <header class="p-admin-panelHead u-reveal" style="--d:0s">
+            <p class="p-admin-panelHead__eyebrow u-mono">No.03 — AUTOMATION RULES</p>
+            <h2 class="p-admin-panelHead__title u-mincho">自動化ルール</h2>
+            <p class="p-admin-panelHead__lead">「きっかけ → 条件 → 動作」の3本で、確認作業の一部を自動化します。</p>
+          </header>
+
+          <div class="p-admin-rules u-reveal" style="--d:.06s">
+            <article class="p-admin-rule">
+              <header class="p-admin-rule__head">
+                <p class="p-admin-rule__no u-wide">01</p>
+                <h3 class="p-admin-rule__title">高リスクの注文 → 自動で保留し、担当者に通知</h3>
+              </header>
+              <div class="p-admin-rule__flow">
+                <div class="p-admin-rule__step">
+                  <p class="p-admin-rule__stepLabel u-mono">きっかけ</p>
+                  <p class="p-admin-rule__stepBody">注文のリスク分析が完了する</p>
+                </div>
+                <span class="p-admin-rule__arrow" aria-hidden="true"><svg class="p-admin-rule__arrowH" viewBox="0 0 40 24"><path d="M2 12H36M27 4L36 12L27 20" fill="none" stroke="currentColor" stroke-width="2"/></svg><svg class="p-admin-rule__arrowV" viewBox="0 0 24 40"><path d="M12 2V36M4 27L12 36L20 27" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+                <div class="p-admin-rule__step">
+                  <p class="p-admin-rule__stepLabel u-mono">条件</p>
+                  <p class="p-admin-rule__stepBody">リスク判定が「高」</p>
+                </div>
+                <span class="p-admin-rule__arrow" aria-hidden="true"><svg class="p-admin-rule__arrowH" viewBox="0 0 40 24"><path d="M2 12H36M27 4L36 12L27 20" fill="none" stroke="currentColor" stroke-width="2"/></svg><svg class="p-admin-rule__arrowV" viewBox="0 0 24 40"><path d="M12 2V36M4 27L12 36L20 27" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+                <div class="p-admin-rule__step p-admin-rule__step--action">
+                  <p class="p-admin-rule__stepLabel u-mono">動作</p>
+                  <p class="p-admin-rule__stepBody">発送を自動で保留し、担当者へ通知する</p>
+                </div>
+              </div>
+              <div class="p-admin-rule__badges">
+                <span class="c-badge c-badge--native">標準機能</span>
+                <span class="c-badge c-badge--ops">手動運用</span>
+              </div>
+            </article>
+
+            <article class="p-admin-rule">
+              <header class="p-admin-rule__head">
+                <p class="p-admin-rule__no u-wide">02</p>
+                <h3 class="p-admin-rule__title">本人確認が未完了 → 発送を保留</h3>
+              </header>
+              <div class="p-admin-rule__flow">
+                <div class="p-admin-rule__step">
+                  <p class="p-admin-rule__stepLabel u-mono">きっかけ</p>
+                  <p class="p-admin-rule__stepBody">注文が作成される</p>
+                </div>
+                <span class="p-admin-rule__arrow" aria-hidden="true"><svg class="p-admin-rule__arrowH" viewBox="0 0 40 24"><path d="M2 12H36M27 4L36 12L27 20" fill="none" stroke="currentColor" stroke-width="2"/></svg><svg class="p-admin-rule__arrowV" viewBox="0 0 24 40"><path d="M12 2V36M4 27L12 36L20 27" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+                <div class="p-admin-rule__step">
+                  <p class="p-admin-rule__stepLabel u-mono">条件</p>
+                  <p class="p-admin-rule__stepBody">会員に「本人確認済み」の目印が無い</p>
+                </div>
+                <span class="p-admin-rule__arrow" aria-hidden="true"><svg class="p-admin-rule__arrowH" viewBox="0 0 40 24"><path d="M2 12H36M27 4L36 12L27 20" fill="none" stroke="currentColor" stroke-width="2"/></svg><svg class="p-admin-rule__arrowV" viewBox="0 0 24 40"><path d="M12 2V36M4 27L12 36L20 27" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+                <div class="p-admin-rule__step p-admin-rule__step--action">
+                  <p class="p-admin-rule__stepLabel u-mono">動作</p>
+                  <p class="p-admin-rule__stepBody">発送を保留にする</p>
+                </div>
+              </div>
+              <div class="p-admin-rule__badges">
+                <span class="c-badge c-badge--native">標準機能</span>
+                <span class="c-badge c-badge--custom">個別開発</span>
+              </div>
+            </article>
+
+            <article class="p-admin-rule">
+              <header class="p-admin-rule__head">
+                <p class="p-admin-rule__no u-wide">03</p>
+                <h3 class="p-admin-rule__title">承認済み会員 かつ 低リスク → 発送承認待ちへ</h3>
+              </header>
+              <div class="p-admin-rule__flow">
+                <div class="p-admin-rule__step">
+                  <p class="p-admin-rule__stepLabel u-mono">きっかけ</p>
+                  <p class="p-admin-rule__stepBody">注文のリスク分析が完了する</p>
+                </div>
+                <span class="p-admin-rule__arrow" aria-hidden="true"><svg class="p-admin-rule__arrowH" viewBox="0 0 40 24"><path d="M2 12H36M27 4L36 12L27 20" fill="none" stroke="currentColor" stroke-width="2"/></svg><svg class="p-admin-rule__arrowV" viewBox="0 0 24 40"><path d="M12 2V36M4 27L12 36L20 27" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+                <div class="p-admin-rule__step">
+                  <p class="p-admin-rule__stepLabel u-mono">条件</p>
+                  <p class="p-admin-rule__stepBody">会員が「承認済み」かつ リスク判定が「低」</p>
+                </div>
+                <span class="p-admin-rule__arrow" aria-hidden="true"><svg class="p-admin-rule__arrowH" viewBox="0 0 40 24"><path d="M2 12H36M27 4L36 12L27 20" fill="none" stroke="currentColor" stroke-width="2"/></svg><svg class="p-admin-rule__arrowV" viewBox="0 0 24 40"><path d="M12 2V36M4 27L12 36L20 27" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+                <div class="p-admin-rule__step p-admin-rule__step--action">
+                  <p class="p-admin-rule__stepLabel u-mono">動作</p>
+                  <p class="p-admin-rule__stepBody">「発送承認待ち」の一覧に表示する（最終確認は担当者）</p>
+                </div>
+              </div>
+              <div class="p-admin-rule__badges">
+                <span class="c-badge c-badge--native">標準機能</span>
+                <span class="c-badge c-badge--ops">手動運用</span>
+              </div>
+            </article>
+          </div>
+
+          <aside class="c-memo" data-memo data-ref="N-10" data-type="native" data-plan="standard" data-confidence="確認済">
+            <h4>自動化の土台はShopify Flow</h4>
+            <p>「高リスクの注文が来たら自動で保留してスタッフに知らせる」といった業務の自動化は、Shopify Flowという標準ツールで作れます。ただし一部の高度な機能は契約プランによって使える・使えないが分かれます。</p>
+          </aside>
+
+          <div class="c-notice">
+            <span class="c-notice__mark u-mono">NOTE</span>
+            <p>3つのルールはいずれも通知先を担当者にしています。会員ごとに内容が異なる審査結果メールを、Shopify Flow単体でお客様へ自動送信することはできないためです。お客様へのご案内は別の仕組みと組み合わせて検討します。</p>
+          </div>
+
+          <aside class="c-memo" data-memo data-ref="N-12" data-type="native app custom external" data-plan="start" data-confidence="要確認">
+            <h4>お客様ごとに異なるメールの自動送信</h4>
+            <p>注文確認・発送通知などの定型メールは標準機能で自動送信できます。ただし審査結果のようにお客様ごとに内容が変わるメールの自動送信には、アプリや外部サービスとの連携など別の仕組みが必要です。</p>
+          </aside>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</section>
+</main>
 
 <footer class="c-footer">
   <div class="l-container c-footer__inner">
@@ -128,8 +454,8 @@
 
 <div class="c-toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="assets/js/data.js?v=09202257"></script>
-<script src="assets/js/site.js?v=09202257"></script>
-
+<script src="assets/js/data.js?v=09211036"></script>
+<script src="assets/js/site.js?v=09211036"></script>
+<script src="assets/js/admin.js?v=09211036"></script>
 </body>
 </html>

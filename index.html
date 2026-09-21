@@ -16,8 +16,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=DM+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="assets/css/base.css?v=09202257">
-<link rel="stylesheet" href="assets/css/index.css?v=09202257">
+<link rel="stylesheet" href="assets/css/base.css?v=09211036">
+<link rel="stylesheet" href="assets/css/index.css?v=09211036">
 <noscript><style>.u-reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -83,9 +83,9 @@
           <button class="c-btn c-btn--ghost" type="button" data-demo="このサンプルでは本人確認フローは実装していません。ご利用の流れのページで手順をご覧いただけます。">先に本人確認を済ませる</button>
         </div>
 
-        <aside class="c-memo" data-memo data-ref="N-01" data-type="native" data-plan="start" data-confidence="要確認">
+        <aside class="c-memo" data-memo data-ref="N-01" data-type="native custom" data-plan="start" data-confidence="確認済">
           <h4>信頼要素の出し方</h4>
-          <p>ここに並ぶ4つの安心材料は、テーマの設定項目として文言・並び順を調整できるようにする想定です。<!-- TODO: NOTES確定後に文面を差し替え --></p>
+          <p>この4つの安心材料は、Online Store 2.0のセクション機能で表示順や文言を管理画面から編集できるようにする想定です。</p>
         </aside>
       </div>
 
@@ -198,9 +198,9 @@
       </a>
     </div>
 
-    <aside class="c-memo" data-memo data-ref="N-02" data-type="native" data-plan="start" data-confidence="要確認">
+    <aside class="c-memo" data-memo data-ref="N-02" data-type="app" data-plan="standard" data-confidence="確認済">
       <h4>用途タグでの絞り込み</h4>
-      <p>各タイルは商品のタグ情報をもとに、機材一覧を絞り込んで表示する想定です。タグの設計・運用方法は要件定義で確定します。<!-- TODO: NOTES確定後に文面を差し替え --></p>
+      <p>各タイルのリンク先は、Shopify公式の無料アプリ（Search &amp; Discovery）が提供する用途タグの絞り込みです。タグの設計・運用方法は要件定義で確定します。</p>
     </aside>
   </div>
 </section>
@@ -262,9 +262,9 @@
 
     <p class="p-index-flow__more"><a class="c-btn c-btn--ghost" href="guide.html">ご利用の流れを詳しく見る</a></p>
 
-    <aside class="c-memo" data-memo data-ref="N-04" data-type="native" data-plan="start" data-confidence="要確認">
-      <h4>ステップ表示の管理</h4>
-      <p>会員登録から返却までの各ステップは、テーマのセクションとして作成し、管理画面から文言や所要時間の目安を編集できるようにする想定です。<!-- TODO: NOTES確定後に文面を差し替え --></p>
+    <aside class="c-memo" data-memo data-ref="N-04" data-type="native app custom" data-plan="start" data-confidence="確認済">
+      <h4>会員登録の仕組み</h4>
+      <p>会員登録・ログインには、パスワード不要で6桁の確認コードを使う新しい方式を想定しています。マイページの表示項目も、決められた範囲で追加できます。</p>
     </aside>
   </div>
 </section>
@@ -308,9 +308,9 @@
 
     <p class="p-index-safeguards__cta"><a class="c-btn c-btn--amber" href="security.html">安心の仕組みを見る</a></p>
 
-    <aside class="c-memo" data-memo data-ref="N-09" data-type="native app external" data-plan="standard" data-confidence="要確認">
-      <h4>安心の仕組みセクションの実装</h4>
-      <p>本人確認・決済認証・住所照合・不正検知・発送承認は、それぞれ別の仕組みの組み合わせです。対応範囲はsecurityページと要件定義で確定します。<!-- TODO: NOTES確定後に文面を差し替え --></p>
+    <aside class="c-memo" data-memo data-ref="N-09" data-type="native ops" data-plan="start" data-confidence="一部要確認">
+      <h4>不正注文の自動分析について</h4>
+      <p>5つの備えのうち「不正注文の自動分析」は、注文のリスクを自動で低・中・高表示する標準機能です。ただし本人確認の代わりにはならず、他の備えと組み合わせて使います。詳しくは安心の仕組みのページでご案内します。</p>
     </aside>
   </div>
 </section>
@@ -534,8 +534,8 @@
 
 <div class="c-toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="assets/js/data.js?v=09202257"></script>
-<script src="assets/js/site.js?v=09202257"></script>
-<script src="assets/js/index.js?v=09202257"></script>
+<script src="assets/js/data.js?v=09211036"></script>
+<script src="assets/js/site.js?v=09211036"></script>
+<script src="assets/js/index.js?v=09211036"></script>
 </body>
 </html>

@@ -16,8 +16,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=DM+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="assets/css/base.css?v=09202257">
-
+<link rel="stylesheet" href="assets/css/base.css?v=09211036">
+<link rel="stylesheet" href="assets/css/guide.css?v=09211036">
 <noscript><style>.u-reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -59,7 +59,471 @@
   </div>
 </header>
 
-<main id="page-guide" class="l-main"><section class="c-sec"><div class="l-container"><header class="c-sec__head"><p class="c-sec__label">No.00 — IN PROGRESS</p><h1 class="c-sec__title">guide（制作中）</h1></header></div></section></main>
+<main id="page-guide" class="l-main"><!-- ============================================================
+     guide — ご利用の流れ（9セクション）
+     ============================================================ -->
+
+<section class="c-sec c-sec--tight" id="hero" aria-label="イントロ">
+  <div class="l-container">
+    <div class="p-guide-hero">
+      <p class="p-guide-hero__eyebrow u-reveal" style="--d:0s">TAMESU — HOW IT WORKS</p>
+      <h1 class="p-guide-hero__title u-reveal" style="--d:.04s">何を、いつまでに、どう返すか。<br>はじめての方への道しるべ。</h1>
+      <p class="p-guide-hero__lead u-reveal" style="--d:.08s">高額な機材を借りるときに気になることを、不安に思う順にご案内します。まずは全体の流れを一望してから、気になる工程だけ詳しくご覧ください。</p>
+
+      <div class="p-guide-callout u-reveal" style="--d:.12s">
+        <p class="p-guide-callout__label u-mono">SMALL FIRST STEP</p>
+        <p class="p-guide-callout__title">小さな一歩から。</p>
+        <p class="p-guide-callout__desc">借りる機材が決まっていなくても、会員登録と本人確認だけ先に済ませておけます。無料・約3分です。</p>
+        <button class="c-btn c-btn--amber c-btn--sm" type="button" data-demo="このサンプルでは本人確認フローは実装していません。手順は下記の「本人確認」でご案内しています。">先に本人確認を済ませる</button>
+      </div>
+
+      <aside class="c-memo" data-memo data-ref="N-04" data-type="native app custom" data-plan="start" data-confidence="確認済">
+        <h4>会員登録とマイページの仕組み</h4>
+        <p>会員ページの仕組みには「新方式」と「従来方式」があります。新方式はパスワード不要でログインでき、決められた範囲でページに項目を追加できます。</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec c-sec--paper2" id="map" aria-label="全体の流れ">
+  <div class="l-container">
+    <header class="c-sec__head u-reveal" style="--d:0s">
+      <p class="c-sec__label"><span class="u-mono">No.01 — AT A GLANCE</span></p>
+      <h2 class="c-sec__title">6つの工程を、まず一望する。</h2>
+      <p class="c-sec__lead">それぞれの番号をクリックすると、下の詳しい説明にジャンプします。</p>
+    </header>
+
+    <ol class="p-guide-map__row u-reveal" style="--d:.08s">
+      <li class="p-guide-map__item">
+        <a href="#step-01">
+          <span class="p-guide-map__no u-wide">01</span>
+          <span class="p-guide-map__name">会員登録</span>
+          <span class="p-guide-map__hint u-mono">約1分</span>
+        </a>
+      </li>
+      <li class="p-guide-map__item">
+        <a href="#step-02">
+          <span class="p-guide-map__no u-wide">02</span>
+          <span class="p-guide-map__name">本人確認</span>
+          <span class="p-guide-map__hint u-mono">約3分</span>
+        </a>
+      </li>
+      <li class="p-guide-map__item">
+        <a href="#step-03">
+          <span class="p-guide-map__no u-wide">03</span>
+          <span class="p-guide-map__name">審査</span>
+          <span class="p-guide-map__hint u-mono">ランクによる</span>
+        </a>
+      </li>
+      <li class="p-guide-map__item">
+        <a href="#step-04">
+          <span class="p-guide-map__no u-wide">04</span>
+          <span class="p-guide-map__name">予約・お支払い</span>
+          <span class="p-guide-map__hint u-mono">最短即日</span>
+        </a>
+      </li>
+      <li class="p-guide-map__item">
+        <a href="#step-05">
+          <span class="p-guide-map__no u-wide">05</span>
+          <span class="p-guide-map__name">受取</span>
+          <span class="p-guide-map__hint u-mono">点検・封緘済み</span>
+        </a>
+      </li>
+      <li class="p-guide-map__item">
+        <a href="#step-06">
+          <span class="p-guide-map__no u-wide">06</span>
+          <span class="p-guide-map__name">返却</span>
+          <span class="p-guide-map__hint u-mono">期限までに発送</span>
+        </a>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<div class="l-container"><ul class="c-scale" aria-hidden="true"><li>-2</li><li>-1</li><li class="is-mid">0</li><li>+1</li><li>+2</li></ul></div>
+
+<!-- ============================================================ -->
+<section class="c-sec" id="timeline" aria-label="工程の詳細">
+  <div class="l-container">
+    <header class="c-sec__head u-reveal" style="--d:0s">
+      <p class="c-sec__label"><span class="u-mono">No.02 — STEP BY STEP</span></p>
+      <h2 class="c-sec__title">工程ごとの、詳しいご案内。</h2>
+      <p class="c-sec__lead">所要時間の目安と、あらかじめご用意いただくものをまとめました。</p>
+    </header>
+
+    <ol class="c-steps u-reveal" style="--d:.06s">
+      <li class="c-steps__item is-active" id="step-01">
+        <p class="c-steps__no">01</p>
+        <div class="p-guide-steps__body">
+          <p class="c-steps__title">会員登録</p>
+          <p class="c-steps__desc">メールアドレスを登録し、届いた確認コードでログインします。パスワードの設定は不要です。</p>
+          <p class="c-steps__time">目安 約1分</p>
+          <p class="p-guide-steps__needs"><span class="p-guide-steps__needsLabel u-mono">必要なもの</span>メールアドレス</p>
+        </div>
+      </li>
+
+      <li class="c-steps__item" id="step-02">
+        <p class="c-steps__no">02</p>
+        <div class="p-guide-steps__body">
+          <p class="c-steps__title">本人確認</p>
+          <p class="c-steps__desc">顔写真付きの身分証をご提出いただきます。外部の本人確認サービス、またはスタッフの目視確認で照合します。借りる機材が決まっていなくても、先に済ませておけます。</p>
+          <p class="c-steps__time">目安 約3分</p>
+          <p class="p-guide-steps__needs"><span class="p-guide-steps__needsLabel u-mono">必要なもの</span>顔写真付きの身分証、本人名義のクレジットカード</p>
+        </div>
+      </li>
+
+      <li class="c-steps__item" id="step-03">
+        <p class="c-steps__no">03</p>
+        <div class="p-guide-steps__body">
+          <p class="c-steps__title">審査</p>
+          <p class="c-steps__desc">借りたい機材のランク（B・A・S）に応じて、確認する項目が変わります。ランクが上がるほど、確認は少し丁寧になります。結果はメールでご案内する想定です。</p>
+          <p class="c-steps__time">目安 ランクにより異なる（下記「ランク別の審査」を参照）</p>
+        </div>
+      </li>
+
+      <li class="c-steps__item p-guide-steps__item--media" id="step-04">
+        <p class="c-steps__no">04</p>
+        <div class="p-guide-steps__body">
+          <p class="c-steps__title">予約・お支払い</p>
+          <p class="c-steps__desc">期間（3択）と補償（3択）を選ぶと、料金と返却期限がその場で決まります。お申し込み後、発送前にスタッフが全数点検を行います。</p>
+          <p class="c-steps__time">予約は最短即日</p>
+          <p class="p-guide-steps__needs"><span class="p-guide-steps__needsLabel u-mono">必要なもの</span>お支払い方法（クレジットカードを想定）</p>
+          <div class="p-guide-steps__media">
+            <figure class="c-frame c-frame--32" data-frame>
+              <img src="assets/img/flow-inspect.webp" width="1600" height="1067" alt="発送前にカメラを点検・清掃する技術スタッフの手元" loading="lazy">
+              <span class="c-frame__corner c-frame__corner--tl" aria-hidden="true"></span>
+              <span class="c-frame__corner c-frame__corner--tr" aria-hidden="true"></span>
+              <span class="c-frame__corner c-frame__corner--bl" aria-hidden="true"></span>
+              <span class="c-frame__corner c-frame__corner--br" aria-hidden="true"></span>
+              <span class="c-frame__cross" aria-hidden="true"></span>
+              <span class="c-frame__key" aria-hidden="true"><span class="c-frame__key-text">FLOW-INSPECT</span><span class="c-frame__key-sub">NO IMAGE</span></span>
+            </figure>
+            <p class="c-exif">60mm&nbsp;&nbsp;f/4&nbsp;&nbsp;1/100&nbsp;&nbsp;ISO 400</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="c-steps__item p-guide-steps__item--media" id="step-05">
+        <p class="c-steps__no">05</p>
+        <div class="p-guide-steps__body">
+          <p class="c-steps__title">受取</p>
+          <p class="c-steps__desc">点検・清掃のうえ、封緘した状態でお届けします。同梱の明細でセット内容をご確認ください。</p>
+          <p class="c-steps__time">受取予定日は予約時にご案内します</p>
+          <div class="p-guide-steps__media">
+            <figure class="c-frame c-frame--32" data-frame>
+              <img src="assets/img/flow-unbox.webp" width="1600" height="1067" alt="届いた箱とハードケース、同梱の返送用伝票" loading="lazy">
+              <span class="c-frame__corner c-frame__corner--tl" aria-hidden="true"></span>
+              <span class="c-frame__corner c-frame__corner--tr" aria-hidden="true"></span>
+              <span class="c-frame__corner c-frame__corner--bl" aria-hidden="true"></span>
+              <span class="c-frame__corner c-frame__corner--br" aria-hidden="true"></span>
+              <span class="c-frame__cross" aria-hidden="true"></span>
+              <span class="c-frame__key" aria-hidden="true"><span class="c-frame__key-text">FLOW-UNBOX</span><span class="c-frame__key-sub">NO IMAGE</span></span>
+            </figure>
+            <p class="c-exif">35mm&nbsp;&nbsp;f/4&nbsp;&nbsp;1/100&nbsp;&nbsp;ISO 400</p>
+          </div>
+          <div class="p-guide-steps__gallery">
+            <div class="p-guide-steps__galleryItem">
+              <p class="p-guide-steps__galleryLabel u-mono">セット内容</p>
+              <figure class="c-frame c-frame--11" data-frame>
+                <img src="assets/img/kit-set.webp" width="1200" height="1200" alt="レンタルセットの内容物（ボディ、レンズ、バッテリー2個、充電器、ストラップ、メモリーカード）" loading="lazy">
+                <span class="c-frame__corner c-frame__corner--tl" aria-hidden="true"></span>
+                <span class="c-frame__corner c-frame__corner--tr" aria-hidden="true"></span>
+                <span class="c-frame__corner c-frame__corner--bl" aria-hidden="true"></span>
+                <span class="c-frame__corner c-frame__corner--br" aria-hidden="true"></span>
+                <span class="c-frame__cross" aria-hidden="true"></span>
+                <span class="c-frame__key" aria-hidden="true"><span class="c-frame__key-text">KIT-SET</span><span class="c-frame__key-sub">NO IMAGE</span></span>
+              </figure>
+              <p class="c-exif">SET&nbsp;&nbsp;7 ITEMS</p>
+            </div>
+            <div class="p-guide-steps__galleryItem">
+              <p class="p-guide-steps__galleryLabel u-mono">封緘シール</p>
+              <figure class="c-frame c-frame--11" data-frame>
+                <img src="assets/img/case-seal.webp" width="1200" height="1200" alt="封緘シールが貼られた耐衝撃ハードケース" loading="lazy">
+                <span class="c-frame__corner c-frame__corner--tl" aria-hidden="true"></span>
+                <span class="c-frame__corner c-frame__corner--tr" aria-hidden="true"></span>
+                <span class="c-frame__corner c-frame__corner--bl" aria-hidden="true"></span>
+                <span class="c-frame__corner c-frame__corner--br" aria-hidden="true"></span>
+                <span class="c-frame__cross" aria-hidden="true"></span>
+                <span class="c-frame__key" aria-hidden="true"><span class="c-frame__key-text">CASE-SEAL</span><span class="c-frame__key-sub">NO IMAGE</span></span>
+              </figure>
+              <p class="c-exif">CASE&nbsp;&nbsp;SEALED</p>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="c-steps__item p-guide-steps__item--media" id="step-06">
+        <p class="c-steps__no">06</p>
+        <div class="p-guide-steps__body">
+          <p class="c-steps__title">返却</p>
+          <p class="c-steps__desc">返却期限までに、宅配便の集荷・コンビニ持込・営業所持込のいずれかで返送してください。返送用の伝票は同梱されています。</p>
+          <p class="c-steps__time">返却期限までに発送してください</p>
+          <div class="p-guide-steps__media">
+            <figure class="c-frame c-frame--32" data-frame>
+              <img src="assets/img/flow-return.webp" width="1600" height="1067" alt="玄関先で宅配スタッフに返却の箱を渡す" loading="lazy">
+              <span class="c-frame__corner c-frame__corner--tl" aria-hidden="true"></span>
+              <span class="c-frame__corner c-frame__corner--tr" aria-hidden="true"></span>
+              <span class="c-frame__corner c-frame__corner--bl" aria-hidden="true"></span>
+              <span class="c-frame__corner c-frame__corner--br" aria-hidden="true"></span>
+              <span class="c-frame__cross" aria-hidden="true"></span>
+              <span class="c-frame__key" aria-hidden="true"><span class="c-frame__key-text">FLOW-RETURN</span><span class="c-frame__key-sub">NO IMAGE</span></span>
+            </figure>
+            <p class="c-exif">35mm&nbsp;&nbsp;f/2.8&nbsp;&nbsp;1/250&nbsp;&nbsp;ISO 200</p>
+          </div>
+        </div>
+      </li>
+    </ol>
+
+    <aside class="c-memo" data-memo data-ref="N-12" data-type="native app custom external" data-plan="start" data-confidence="要確認">
+      <h4>審査結果の通知</h4>
+      <p>注文確認や発送完了などの定型メールは、標準機能で文面を編集し自動送信できます。ただし審査結果のようにお客様ごとに内容が変わる通知の自動送信には、別の仕組みが必要です（要件定義で決定）。</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec c-sec--paper2" id="docs" aria-label="本人確認の書類">
+  <div class="l-container">
+    <div class="l-grid p-guide-docs">
+      <header class="c-sec__head p-guide-docs__head u-reveal" style="--d:0s">
+        <p class="c-sec__label"><span class="u-mono">No.03 — IDENTITY CHECK</span></p>
+        <h2 class="c-sec__title">本人確認で使う書類、<br>取得しない情報。</h2>
+        <p class="c-sec__lead">ご提出いただく書類の例と、当社が取得しない情報をあわせてご案内します。</p>
+      </header>
+
+      <div class="p-guide-docs__body u-reveal" style="--d:.08s">
+        <div class="p-guide-docs__cols">
+          <div class="p-guide-docs__col">
+            <p class="p-guide-docs__colLabel u-mono">使う書類の例</p>
+            <ul class="p-guide-docs__list">
+              <li>運転免許証（表裏）</li>
+              <li>マイナンバーカードの表面</li>
+              <li>パスポート＋補助書類（現住所が確認できるもの）</li>
+            </ul>
+          </div>
+          <div class="p-guide-docs__col p-guide-docs__col--not">
+            <p class="p-guide-docs__colLabel u-mono">取得しない情報</p>
+            <ul class="p-guide-docs__list">
+              <li>マイナンバー（個人番号）そのもの</li>
+              <li>健康保険証の記号・番号</li>
+              <li>本籍地などその他の記載事項</li>
+            </ul>
+          </div>
+        </div>
+        <p class="p-guide-docs__note">確認は外部の本人確認サービス、またはスタッフの目視確認で行います。ご提出いただいた書類は、Shopifyのストア内には保存しません。</p>
+
+        <aside class="c-memo" data-memo data-ref="N-05" data-type="external app ops" data-plan="start" data-confidence="一部要確認">
+          <h4>本人確認の進め方</h4>
+          <p>オンラインで身分証を自動チェックする仕組みは、外部の本人確認サービスと別途契約が必要で、確認1件ごとに数十円〜百数十円ほどの費用がかかります。まずは書類画像を送っていただき、スタッフが目視で確認する運用から始める方法もあります。</p>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec" id="ranks" aria-label="ランク別の審査">
+  <div class="l-container">
+    <div class="l-grid p-guide-ranks">
+      <header class="c-sec__head p-guide-ranks__head u-reveal" style="--d:0s">
+        <p class="c-sec__label"><span class="u-mono">No.04 — REVIEW BY RANK</span></p>
+        <h2 class="c-sec__title">機材のランクで、<br>審査の丁寧さが変わります。</h2>
+        <p class="c-sec__lead">参考購入価格に応じてB・A・Sの3段階に分け、金額が上がるほど確認を重ねます。</p>
+      </header>
+
+      <div class="p-guide-ranks__body u-reveal" style="--d:.08s">
+        <div class="c-table-wrap">
+          <table class="c-table c-table--zebra">
+            <thead>
+              <tr><th>ランク</th><th>目安</th><th>審査</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="c-badge c-badge--b">RANK B</span></td>
+                <td>参考購入価格 50万円未満</td>
+                <td>本人確認（顔写真付き身分証＋本人名義カード）</td>
+              </tr>
+              <tr>
+                <td><span class="c-badge c-badge--a">RANK A</span></td>
+                <td>50万〜80万円未満</td>
+                <td>B ＋ 本人確認書類の住所へのみ発送</td>
+              </tr>
+              <tr>
+                <td><span class="c-badge c-badge--s">RANK S</span></td>
+                <td>80万円以上</td>
+                <td>A ＋ 電話での在籍・意思確認、初回は対面受取（受領サイン）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="p-guide-ranks__more"><a class="c-btn c-btn--ghost" href="security.html">審査の仕組みをもっと詳しく見る</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="l-container"><ul class="c-scale" aria-hidden="true"><li>-2</li><li>-1</li><li class="is-mid">0</li><li>+1</li><li>+2</li></ul></div>
+
+<!-- ============================================================ -->
+<section class="c-sec c-sec--paper2" id="pricing" aria-label="料金の考え方">
+  <div class="l-container">
+    <header class="c-sec__head u-reveal" style="--d:0s">
+      <p class="c-sec__label"><span class="u-mono">No.05 — PRICING</span></p>
+      <h2 class="c-sec__title">料金は、期間で決まります。</h2>
+      <p class="c-sec__lead">3つの期間から選べます。参考購入価格との対比を、一例でご覧ください。</p>
+    </header>
+
+    <div class="l-grid p-guide-pricing u-reveal" style="--d:.08s">
+      <div class="p-guide-pricing__table">
+        <p class="p-guide-pricing__exLabel u-mono">EXAMPLE — SONY α7R V（参考購入価格 560,000円）</p>
+        <div class="c-table-wrap">
+          <table class="c-table c-table--zebra">
+            <thead>
+              <tr><th>期間</th><th class="u-num">料金</th><th class="u-num">参考購入価格に対する割合</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1泊2日</td><td class="u-num">8,800円〜</td><td class="u-num">約2%</td></tr>
+              <tr><td>3泊4日<span class="p-guide-pricing__reco u-mono">おすすめ</span></td><td class="u-num">17,800円〜</td><td class="u-num">約3%</td></tr>
+              <tr><td>7泊8日</td><td class="u-num">29,800円〜</td><td class="u-num">約5%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="p-guide-rules">
+        <h3 class="p-guide-rules__title">延長・延滞・キャンセルについて</h3>
+        <ul class="p-guide-rules__list">
+          <li><b>延長</b> 在庫に空きがあれば、返却期限の前日までにマイページからご相談いただけます。</li>
+          <li><b>延滞</b> 返却期限を過ぎた日数に応じて、延滞料金が発生します。</li>
+          <li><b>キャンセル</b> 発送前は無料、発送後のキャンセルは承れない運用を想定しています。</li>
+        </ul>
+        <div class="c-notice">
+          <span class="c-notice__mark u-mono">NOTE</span>
+          <p>延長・延滞・キャンセルの具体的な条件は、提案時点の案です。正式な規定は要件定義で確定します。</p>
+        </div>
+
+        <aside class="c-memo" data-memo data-ref="N-13" data-type="native app custom" data-plan="start" data-confidence="一部要確認">
+          <h4>延長・延滞・補償の計算</h4>
+          <p>延長料金や延滞料金は、標準機能だけでは自動計算できません。下書き注文や請求書送付で後から請求する方法や、専用の外部アプリを組み合わせる方法があります。</p>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec" id="protection" aria-label="補償の比較">
+  <div class="l-container">
+    <header class="c-sec__head u-reveal" style="--d:0s">
+      <p class="c-sec__label"><span class="u-mono">No.06 — PROTECTION PLANS</span></p>
+      <h2 class="c-sec__title">補償は、3つから選べます。</h2>
+      <p class="c-sec__lead">多くのお客様に選ばれているのは中央の「あんしん補償」です。自己負担の上限をさらに抑えたい場合はフル補償もご検討ください。</p>
+    </header>
+
+    <div class="u-reveal" style="--d:.08s">
+      <div class="c-table-wrap">
+        <table class="c-table c-table--zebra">
+          <thead>
+            <tr><th>補償</th><th class="u-num">追加料金</th><th class="u-num">自己負担上限</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>標準補償</td><td class="u-num">料金に含む</td><td class="u-num">50,000円</td></tr>
+            <tr><td>あんしん補償<span class="p-guide-pricing__reco u-mono">おすすめ</span></td><td class="u-num">レンタル料の10%</td><td class="u-num">10,000円</td></tr>
+            <tr><td>フル補償</td><td class="u-num">レンタル料の18%</td><td class="u-num">0円</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="c-notice c-notice--warn">
+        <span class="c-notice__mark u-mono">NOTE</span>
+        <p>盗難・紛失・未返却は全プラン補償対象外です（規約に基づき実費を請求します）。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec c-sec--paper2" id="return" aria-label="返却方法">
+  <div class="l-container">
+    <header class="c-sec__head u-reveal" style="--d:0s">
+      <p class="c-sec__label"><span class="u-mono">No.07 — RETURN</span></p>
+      <h2 class="c-sec__title">返却は、3つの方法から選べます。</h2>
+      <p class="c-sec__lead">返送用の伝票は、お届け時のセットに同梱されています。</p>
+    </header>
+
+    <div class="p-guide-return__grid u-reveal" style="--d:.08s">
+      <div class="p-guide-return__card">
+        <p class="p-guide-return__no u-wide">01</p>
+        <h3 class="p-guide-return__title">宅配便の集荷</h3>
+        <p class="p-guide-return__desc">ご自宅や職場まで、宅配便の集荷サービスにお申込みいただけます。</p>
+      </div>
+      <div class="p-guide-return__card">
+        <p class="p-guide-return__no u-wide">02</p>
+        <h3 class="p-guide-return__title">コンビニ持込</h3>
+        <p class="p-guide-return__desc">お近くのコンビニエンスストアの窓口から発送いただけます。</p>
+      </div>
+      <div class="p-guide-return__card">
+        <p class="p-guide-return__no u-wide">03</p>
+        <h3 class="p-guide-return__title">営業所持込</h3>
+        <p class="p-guide-return__desc">最寄りの配送会社の営業所へ、直接お持ち込みいただけます。</p>
+      </div>
+    </div>
+
+    <p class="p-guide-return__note u-reveal" style="--d:.1s">返却手続きは、マイページからお申し込みいただけます。</p>
+    <p class="p-guide-return__cta u-reveal" style="--d:.1s"><a class="c-btn c-btn--ghost" href="mypage.html">マイページで返却手続きを見る</a></p>
+
+    <aside class="c-memo" data-memo data-ref="N-14" data-type="native app ops" data-plan="start" data-confidence="要確認">
+      <h4>返却申請の実装</h4>
+      <p>返却申請は、標準の「返品」機能（本来は返金・交換向け）を工夫して流用するか、専用フォームとスタッフの手動対応で実現する方法があります。標準機能はレンタル返却専用ではない点に注意が必要です。</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec" id="faq" aria-label="よくある質問">
+  <div class="l-container">
+    <header class="c-sec__head u-reveal" style="--d:0s">
+      <p class="c-sec__label"><span class="u-mono">No.08 — FAQ</span></p>
+      <h2 class="c-sec__title">よくある質問</h2>
+    </header>
+
+    <div class="c-faq u-reveal" style="--d:.08s">
+      <details class="c-faq__item">
+        <summary><span class="c-faq__q u-mono">Q1</span><span>会員登録や本人確認に費用はかかりますか。</span></summary>
+        <p class="c-faq__a">いいえ、無料です。レンタルをご利用の際にのみ、期間と補償に応じた料金がかかります。</p>
+      </details>
+      <details class="c-faq__item">
+        <summary><span class="c-faq__q u-mono">Q2</span><span>借りる機材が決まっていなくても本人確認できますか。</span></summary>
+        <p class="c-faq__a">可能です。先に会員登録と本人確認だけ済ませておくと、その後の予約がスムーズです。</p>
+      </details>
+      <details class="c-faq__item">
+        <summary><span class="c-faq__q u-mono">Q3</span><span>審査にはどれくらい時間がかかりますか。</span></summary>
+        <p class="c-faq__a">機材のランクによって異なります。目安は本ページの「ランク別の審査」でご案内しています。</p>
+      </details>
+      <details class="c-faq__item">
+        <summary><span class="c-faq__q u-mono">Q4</span><span>レンタル期間を延長したい場合はどうすればよいですか。</span></summary>
+        <p class="c-faq__a">返却期限の前日までにマイページからご相談ください。在庫に空きがある場合に対応する想定です。</p>
+      </details>
+      <details class="c-faq__item">
+        <summary><span class="c-faq__q u-mono">Q5</span><span>返却が遅れそうな場合はどうすればよいですか。</span></summary>
+        <p class="c-faq__a">早めにご連絡ください。延滞料金の具体的な考え方は要件定義で確定します。</p>
+      </details>
+      <details class="c-faq__item">
+        <summary><span class="c-faq__q u-mono">Q6</span><span>補償はどれを選べばよいですか。</span></summary>
+        <p class="c-faq__a">多くのお客様に選ばれているのは中央の「あんしん補償」です。自己負担の上限をさらに抑えたい場合はフル補償もご検討ください。</p>
+      </details>
+    </div>
+
+    <div class="p-guide-faq__cta u-reveal" style="--d:.1s">
+      <h2 class="p-guide-faq__ctaTitle">まずは、本人確認から。</h2>
+      <div class="p-guide-faq__ctaBtns">
+        <button class="c-btn c-btn--amber" type="button" data-demo="このサンプルでは本人確認フローは実装していません。手順は本ページでご案内しています。">先に本人確認を済ませる</button>
+        <a class="c-btn c-btn--primary" href="collection.html">機材を見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
 
 <footer class="c-footer">
   <div class="l-container c-footer__inner">
@@ -128,8 +592,8 @@
 
 <div class="c-toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="assets/js/data.js?v=09202257"></script>
-<script src="assets/js/site.js?v=09202257"></script>
+<script src="assets/js/data.js?v=09211036"></script>
+<script src="assets/js/site.js?v=09211036"></script>
 
 </body>
 </html>

@@ -1,0 +1,122 @@
+/* =================================================================
+   TAMESU（仮称） — mypage ページ固有CSS
+   セレクタは #page-mypage または .p-mypage-* のみ。
+   管理的だが雑誌の品位を保つ：密度は高め、装飾は控えめ。
+   ================================================================= */
+
+/* ---- 会員ヘッダー ---- */
+.p-mypage-header{align-items:end;}
+.p-mypage-header__id{grid-column:1/8;}
+.p-mypage-header__verify{grid-column:8/13;}
+@media(max-width:899px){
+  .p-mypage-header__id,.p-mypage-header__verify{grid-column:1/-1;}
+  .p-mypage-header__verify{margin-top:var(--sp-6);}
+}
+.p-mypage-header__eyebrow{font-size:11px;letter-spacing:.16em;color:var(--c-ink-3);margin-bottom:16px;}
+.p-mypage-header__name{margin-bottom:14px;}
+.p-mypage-header__sample{font-size:.55em;color:var(--c-ink-3);letter-spacing:.02em;margin-left:.2em;}
+.p-mypage-header__no{font-size:13px;color:var(--c-ink-2);}
+.p-mypage-header__no .u-mono{color:var(--c-ink-3);margin-right:8px;}
+
+.p-mypage-header__verifyLabel{font-size:10.5px;letter-spacing:.1em;color:var(--c-ink-3);margin-bottom:14px;}
+.p-mypage-header__verifyNote{
+  margin-top:16px;display:flex;align-items:center;gap:10px;
+  font-size:13px;color:var(--c-ink-2);
+}
+
+/* ---- p-mypage-steps（汎用の横型ステッパー：KYC3段階／注文6段階） ---- */
+.p-mypage-steps{display:flex;border-top:2px solid var(--c-line-strong);}
+.p-mypage-steps li{
+  flex:1;position:relative;padding-top:16px;text-align:center;
+}
+.p-mypage-steps li::before{
+  content:"";position:absolute;top:-2px;left:0;right:0;height:2px;background:transparent;
+}
+.p-mypage-steps li.is-done::before{background:var(--c-amber-deep);}
+.p-mypage-steps li::after{
+  content:"";position:absolute;top:-5px;left:50%;width:8px;height:8px;
+  transform:translateX(-50%);border-radius:50%;
+  background:var(--c-paper-3);border:2px solid var(--c-line-strong);
+}
+.p-mypage-steps li.is-done::after{border-color:var(--c-amber-deep);background:var(--c-amber-deep);}
+.p-mypage-steps li.is-current::after{
+  width:12px;height:12px;top:-7px;background:var(--c-amber);border-color:var(--c-amber);
+}
+.p-mypage-steps__label{
+  display:block;font-size:11.5px;color:var(--c-ink-3);line-height:1.4;
+}
+.p-mypage-steps li.is-done .p-mypage-steps__label{color:var(--c-ink-2);}
+.p-mypage-steps li.is-current .p-mypage-steps__label{color:var(--c-amber-deep);font-weight:700;}
+.p-mypage-steps--order{margin:26px 0 22px;}
+@media(max-width:599px){
+  .p-mypage-steps__label{font-size:9.5px;}
+}
+
+/* ---- shell（左サブナビ＋右コンテンツ） ---- */
+.p-mypage-shell{align-items:start;}
+.p-mypage-nav{grid-column:1/4;}
+.p-mypage-content{grid-column:4/13;}
+@media(max-width:899px){
+  .p-mypage-nav,.p-mypage-content{grid-column:1/-1;}
+}
+.p-mypage-nav{
+  position:sticky;top:calc(var(--header-h) + 26px);
+  background:var(--c-paper-3);border:1px solid var(--c-line-strong);
+  padding:20px 4px;
+}
+.p-mypage-nav__label{
+  padding:0 20px 14px;margin-bottom:6px;border-bottom:1px solid var(--c-line);
+  font-size:10px;letter-spacing:.18em;color:var(--c-ink-3);
+}
+.p-mypage-nav nav{display:flex;flex-direction:column;}
+.p-mypage-nav__link{
+  display:flex;align-items:center;gap:10px;padding:11px 20px;
+  font-size:13px;color:var(--c-ink-2);
+  border-left:2px solid transparent;
+  transition:color var(--t-fast) var(--ease),border-color var(--t-fast) var(--ease),background var(--t-fast) var(--ease);
+}
+.p-mypage-nav__link .u-mono{font-size:10.5px;color:var(--c-ink-3);}
+.p-mypage-nav__link:hover{color:var(--c-amber-deep);background:rgba(215,128,31,.06);border-left-color:var(--c-amber-deep);}
+@media(max-width:899px){
+  .p-mypage-nav{position:static;padding:6px 4px;}
+  .p-mypage-nav__label{display:none;}
+  .p-mypage-nav nav{flex-direction:row;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .p-mypage-nav__link{flex:0 0 auto;padding:10px 16px;border-left:0;border-bottom:2px solid transparent;white-space:nowrap;}
+  .p-mypage-nav__link:hover{border-left:0;border-bottom-color:var(--c-amber-deep);}
+}
+
+/* ---- 各ブロック共通 ---- */
+.p-mypage-block{padding-block:var(--sp-7) 0;border-top:1px solid var(--c-line-strong);}
+.p-mypage-block:first-child{padding-top:0;border-top:0;}
+.p-mypage-block + .p-mypage-block{margin-top:var(--sp-7);}
+.p-mypage-block__head{margin-bottom:22px;}
+.p-mypage-block__label{font-size:10.5px;letter-spacing:.14em;color:var(--c-ink-3);margin-bottom:10px;}
+.p-mypage-block__title{font-size:clamp(19px,2vw,22px);margin-bottom:8px;}
+.p-mypage-block__lead{font-size:13.5px;color:var(--c-ink-2);max-width:56ch;}
+.p-mypage-block__actions{margin-top:20px;}
+
+/* ---- 現在の予約 ---- */
+.p-mypage-order{
+  background:var(--c-paper-3);border:1px solid var(--c-line-strong);
+  padding:24px 26px 26px;
+}
+.p-mypage-order__top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:10px;}
+.p-mypage-order__id{font-size:13px;color:var(--c-ink-3);}
+.p-mypage-order__item{font-size:18px;font-weight:600;color:var(--c-ink);}
+.p-mypage-order__dates{display:flex;gap:36px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:1px solid var(--c-line);}
+.p-mypage-order__dateLabel{font-size:10.5px;letter-spacing:.08em;color:var(--c-ink-3);margin-bottom:6px;}
+.p-mypage-order__dateValue{font-stretch:125%;font-variation-settings:"wdth" 125;font-weight:700;font-size:19px;color:var(--c-ink);}
+.p-mypage-order__hint{margin-top:14px;font-size:11.5px;color:var(--c-ink-3);}
+
+/* ---- 返却手続き ---- */
+.p-mypage-return{background:var(--c-paper-3);border:1px solid var(--c-line-strong);padding:24px 26px 26px;}
+.p-mypage-return__current{
+  display:flex;align-items:center;gap:12px;font-size:14.5px;font-weight:600;color:var(--c-ink);
+  padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid var(--c-line);
+}
+.p-mypage-return__stepLabel{font-size:10.5px;letter-spacing:.08em;color:var(--c-ink-3);margin-bottom:12px;}
+.p-mypage-return__note{margin-top:18px;font-size:12.5px;color:var(--c-ink-3);}
+.p-mypage-return [data-return-submit]{margin-top:22px;}
+
+/* ---- FAQ的CTA不要のシンプルブロック（住所変更・再提出・問い合わせ）は
+       共通クラスのみで足りるため個別スタイルなし ---- */

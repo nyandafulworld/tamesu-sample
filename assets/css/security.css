@@ -1,0 +1,203 @@
+/* =================================================================
+   TAMESU（仮称） — security ページ固有CSS
+   セレクタは #page-security または .p-security-* のみ。
+   ================================================================= */
+
+/* ---- hero（sec-hero を全幅で敷き、左の暗部にコピーを重ねる） ---- */
+.p-security-hero__stage{position:relative;}
+.p-security-hero__frame{width:100%;}
+.p-security-hero__scrim{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(22,20,15,.72) 0%,rgba(22,20,15,.5) 32%,rgba(22,20,15,0) 62%);
+}
+.p-security-hero__content{position:relative;z-index:1;margin-top:26px;}
+.p-security-hero__eyebrow{
+  font-family:var(--f-mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--c-amber-soft);
+  display:flex;align-items:center;gap:10px;
+}
+.p-security-hero__eyebrow::before{content:"";width:26px;height:1px;background:var(--c-amber);}
+.p-security-hero__title{margin:18px 0 20px;font-size:clamp(27px,3.5vw,46px);line-height:1.5;word-break:keep-all;overflow-wrap:anywhere;}
+.p-security-hero__lead{font-size:15.5px;line-height:1.95;color:rgba(248,244,235,.86);max-width:52ch;}
+.p-security-hero__facts{
+  list-style:none;display:flex;flex-wrap:wrap;
+  margin-top:32px;padding-top:16px;border-top:1px solid rgba(248,244,235,.26);
+}
+.p-security-hero__facts li{
+  font-family:var(--f-mono);font-size:10.6px;letter-spacing:.05em;color:rgba(248,244,235,.78);
+  padding:6px 20px 6px 0;margin-right:20px;border-right:1px solid rgba(248,244,235,.22);
+}
+.p-security-hero__facts li:last-child{border-right:0;margin-right:0;padding-right:0;}
+.p-security-hero__cta{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;}
+.p-security-hero__exif{margin-top:12px;color:rgba(248,244,235,.5);}
+
+@media(min-width:900px){
+  .p-security-hero__content{
+    position:absolute;z-index:2;top:0;left:0;right:44%;bottom:0;
+    display:flex;flex-direction:column;justify-content:center;
+    margin-top:0;padding:0 6% 0 4%;
+  }
+}
+@media(max-width:599px){
+  .p-security-hero__facts li{width:calc(50% - 20px);border-right:0;padding:8px 0;}
+}
+
+/* ---- 2つの脅威 ---- */
+.p-security-threats{margin-top:8px;}
+.p-security-threats__item{
+  grid-column:1/-1;position:relative;overflow:hidden;
+  padding:34px 28px 30px;border:1px solid var(--c-line-strong);background:var(--c-paper-3);
+}
+@media(min-width:900px){
+  .p-security-threats__item{grid-column:span 6;}
+}
+.p-security-threats__mark{
+  position:absolute;top:-20px;right:8px;z-index:0;
+  font-size:clamp(90px,11vw,148px);line-height:1;font-weight:800;
+  color:var(--c-ink);opacity:.055;pointer-events:none;user-select:none;
+}
+.p-security-threats__tag{position:relative;font-size:11px;letter-spacing:.14em;color:var(--c-amber-deep);margin-bottom:10px;}
+.p-security-threats__title{position:relative;margin-bottom:12px;}
+.p-security-threats__body{position:relative;font-size:14px;line-height:1.9;color:var(--c-ink-2);max-width:52ch;}
+.p-security-threats__note{margin-top:26px;}
+
+/* ---- 5つの備え：露出スケール風ダイヤル ---- */
+.p-security-dial{margin-top:46px;}
+.p-security-dial__ruler{display:block;width:100%;height:40px;margin-bottom:0;}
+.p-security-dial__base{stroke:var(--c-amber);stroke-width:2;vector-effect:non-scaling-stroke;}
+.p-security-dial__tick{stroke:rgba(248,244,235,.3);stroke-width:1;vector-effect:non-scaling-stroke;}
+.p-security-dial__tick--major{stroke:var(--c-amber);stroke-width:2;}
+
+.p-security-dial__row{display:grid;grid-template-columns:repeat(5,1fr);gap:0 18px;}
+.p-security-dial__item{padding-top:26px;position:relative;text-align:center;}
+.p-security-dial__item::before{
+  content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:2px;height:20px;background:var(--c-amber);
+}
+.p-security-dial__no{
+  font-family:var(--f-wide);font-stretch:125%;font-variation-settings:"wdth" 125;
+  font-size:30px;font-weight:700;color:var(--c-amber);
+}
+.p-security-dial__title{margin:10px 0 8px;font-size:14.5px;font-weight:700;color:var(--c-paper-3);}
+.p-security-dial__desc{font-size:12.3px;line-height:1.8;color:rgba(248,244,235,.72);max-width:36ch;margin-inline:auto;}
+
+@media(max-width:899px){
+  .p-security-dial__ruler{display:none;}
+  .p-security-dial__row{display:flex;flex-direction:column;gap:0;border-left:2px solid var(--c-amber);}
+  .p-security-dial__item{text-align:left;padding:22px 0 22px 24px;border-bottom:1px solid rgba(248,244,235,.14);}
+  .p-security-dial__item::before{display:none;}
+  .p-security-dial__item:last-child{border-bottom:0;}
+  .p-security-dial__desc{margin-inline:0;max-width:52ch;}
+}
+
+/* ---- A・B マトリクス ---- */
+.p-security-matrix{margin-top:54px;}
+.p-security-matrix__label{font-size:11px;letter-spacing:.16em;color:rgba(248,244,235,.5);margin-bottom:16px;}
+.p-security-matrix__wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.p-security-matrix__table{width:100%;border-collapse:collapse;min-width:560px;}
+.p-security-matrix__table th,.p-security-matrix__table td{
+  padding:14px 12px;border-bottom:1px solid rgba(248,244,235,.16);text-align:left;vertical-align:middle;
+}
+.p-security-matrix__table thead th{
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(248,244,235,.5);border-bottom:1px solid rgba(248,244,235,.32);font-weight:500;
+}
+.p-security-matrix__hHead{display:block;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;color:var(--c-amber);}
+.p-security-matrix__hSub{display:block;margin-top:4px;font-size:10.5px;letter-spacing:.02em;color:rgba(248,244,235,.5);text-transform:none;}
+.p-security-matrix__table tbody th{
+  font-family:var(--f-gothic);font-weight:500;font-size:13.5px;color:var(--c-paper-3);white-space:nowrap;
+}
+.p-security-matrix__lvl{
+  display:inline-block;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;
+  padding:.4em .85em;border:1px solid rgba(248,244,235,.3);color:rgba(248,244,235,.75);
+}
+.p-security-matrix__lvl.is-hit{background:var(--c-amber);color:var(--c-ink);border-color:var(--c-amber);font-weight:500;}
+.p-security-matrix__lvl.is-partial{background:rgba(248,244,235,.14);color:var(--c-paper-3);border-color:rgba(248,244,235,.4);}
+.p-security-matrix__lvl.is-none{background:transparent;color:rgba(248,244,235,.45);border-style:dashed;}
+
+/* ---- 手続きの順番（フロー） ---- */
+.p-security-flow{margin-top:54px;padding-top:26px;border-top:1px solid rgba(248,244,235,.22);}
+.p-security-flow__label{font-size:11px;letter-spacing:.16em;color:rgba(248,244,235,.5);margin-bottom:16px;}
+.p-security-flow__list{display:flex;flex-wrap:wrap;align-items:center;row-gap:10px;}
+.p-security-flow__list li{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.03em;color:var(--c-paper-3);white-space:nowrap;}
+.p-security-flow__list li:not(:last-child)::after{content:"→";margin:0 14px;color:var(--c-amber);}
+.p-security-flow__note{margin-top:18px;font-size:12.5px;color:rgba(248,244,235,.6);}
+
+/* ---- 自動分析の限界 ---- */
+.p-security-limits__head{grid-column:1/5;}
+.p-security-limits__body{grid-column:5/13;}
+@media(max-width:899px){
+  .p-security-limits__head,.p-security-limits__body{grid-column:1/-1;}
+}
+.p-security-limits__compare{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:30px;
+  border:1px solid var(--c-line-strong);background:var(--c-paper-3);
+}
+.p-security-limits__col{padding:22px 24px;}
+.p-security-limits__col--muted{border-left:1px solid var(--c-line-strong);}
+.p-security-limits__colLabel{font-size:11px;letter-spacing:.1em;color:var(--c-amber-deep);margin-bottom:10px;}
+.p-security-limits__col--muted .p-security-limits__colLabel{color:var(--c-ink-3);}
+.p-security-limits__colText{font-size:13.5px;line-height:1.85;color:var(--c-ink-2);}
+@media(max-width:599px){
+  .p-security-limits__compare{grid-template-columns:1fr;}
+  .p-security-limits__col--muted{border-left:0;border-top:1px solid var(--c-line-strong);}
+}
+.p-security-limits__sub{margin-top:28px;font-size:14px;line-height:1.9;color:var(--c-ink-2);max-width:60ch;}
+
+/* ---- お客様にとっての安心 ---- */
+.p-security-forcustomer__subhead{margin-bottom:14px;}
+.p-security-forcustomer__lead{font-size:14px;color:var(--c-ink-2);margin-bottom:22px;max-width:56ch;}
+.p-security-forcustomer__block{margin-top:52px;}
+.p-security-forcustomer__block:first-child{margin-top:0;}
+.p-security-forcustomer__block .c-notice{margin-top:18px;}
+.p-security-forcustomer__reco td,.p-security-forcustomer__reco th{background:var(--c-amber-soft);}
+.p-security-forcustomer__recoTag{
+  display:inline-block;margin-left:8px;font-size:9.5px;letter-spacing:.08em;color:var(--c-amber-deep);
+  border:1px solid var(--c-amber-deep);border-radius:var(--r-pill);padding:.25em .7em;vertical-align:middle;
+}
+
+.p-security-forcustomer__inspect{margin-top:52px;align-items:end;}
+.p-security-forcustomer__inspectMedia{grid-column:1/8;}
+.p-security-forcustomer__inspectMedia--seal{grid-column:8/13;}
+.p-security-forcustomer__inspectText{grid-column:1/13;margin-top:6px;}
+.p-security-forcustomer__inspectText p{font-size:14px;line-height:1.9;color:var(--c-ink-2);max-width:66ch;}
+@media(max-width:899px){
+  .p-security-forcustomer__inspectMedia{grid-column:1/-1;}
+  .p-security-forcustomer__inspectMedia--seal{grid-column:1/-1;max-width:280px;}
+}
+
+.p-security-forcustomer__privacy{margin-top:52px;}
+.p-security-forcustomer__privacyGrid{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:16px;
+  border:1px solid var(--c-line-strong);background:var(--c-paper-3);
+}
+.p-security-forcustomer__privacyCol{padding:22px 24px;}
+.p-security-forcustomer__privacyCol--muted{border-left:1px solid var(--c-line-strong);}
+.p-security-forcustomer__privacyLabel{font-size:11px;letter-spacing:.1em;color:var(--c-amber-deep);margin-bottom:10px;}
+.p-security-forcustomer__privacyCol--muted .p-security-forcustomer__privacyLabel{color:var(--c-ink-3);}
+.p-security-forcustomer__privacyText{font-size:13.5px;line-height:1.85;color:var(--c-ink-2);}
+@media(max-width:599px){
+  .p-security-forcustomer__privacyGrid{grid-template-columns:1fr;}
+  .p-security-forcustomer__privacyCol--muted{border-left:0;border-top:1px solid var(--c-line-strong);}
+}
+
+/* ---- 先の日付の予約 ---- */
+.p-security-payment__head{grid-column:1/6;}
+.p-security-payment__body{grid-column:6/13;}
+@media(max-width:899px){
+  .p-security-payment__head,.p-security-payment__body{grid-column:1/-1;}
+}
+
+/* ---- 運営会社 ---- */
+.p-security-company__body{grid-column:1/6;}
+.p-security-company__media{grid-column:6/13;}
+@media(max-width:899px){
+  .p-security-company__body,.p-security-company__media{grid-column:1/-1;}
+  .p-security-company__media{order:2;margin-top:var(--sp-6);}
+  .p-security-company__body{order:1;}
+}
+.p-security-company__org{font-size:12px;color:var(--c-ink-3);margin:14px 0 18px;letter-spacing:.03em;}
+
+/* ---- 末尾の注記 ---- */
+.p-security-foot{border-top:1px solid var(--c-line-strong);}
+.p-security-foot__text{font-size:12.5px;line-height:1.9;color:var(--c-ink-3);max-width:64ch;}
+.p-security-foot__links{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;}

@@ -16,8 +16,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=DM+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="assets/css/base.css?v=09202257">
-
+<link rel="stylesheet" href="assets/css/base.css?v=09211036">
+<link rel="stylesheet" href="assets/css/collection.css?v=09211036">
 <noscript><style>.u-reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -59,7 +59,141 @@
   </div>
 </header>
 
-<main id="page-collection" class="l-main"><section class="c-sec"><div class="l-container"><header class="c-sec__head"><p class="c-sec__label">No.00 — IN PROGRESS</p><h1 class="c-sec__title">collection（制作中）</h1></header></div></section></main>
+<main id="page-collection" class="l-main"><!-- ============================================================
+     collection — 機材一覧（厳選12台。絞り込みと並び替え）
+     ============================================================ -->
+
+<section class="c-sec c-sec--tight" id="head" aria-label="ページ見出し">
+  <div class="l-container">
+    <div class="l-grid p-collection-head">
+      <header class="c-sec__head c-sec__head--wide p-collection-head__copy u-reveal" style="--d:0s">
+        <p class="c-sec__label"><span class="u-mono">TAMESU — THE COLLECTION</span></p>
+        <h1 class="c-sec__title">数千点から、<br>探させない。</h1>
+        <p class="c-sec__lead">在庫の広さでは戦いません。買う前に試したい一台に、迷わずたどり着けること。それだけを考えて、12台だけを置いています。</p>
+      </header>
+
+      <div class="p-collection-head__count u-reveal" style="--d:.1s">
+        <p class="p-collection-head__countLabel u-mono">LINE-UP</p>
+        <p class="p-collection-head__countNum"><span class="u-wide">12</span><span class="p-collection-head__countUnit u-mono">台のみ</span></p>
+        <p class="p-collection-head__countNote">すべて本人確認済みの会員制でお貸しします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="c-sec c-sec--tight c-sec--paper2 p-collection-filtersSec" id="filters" aria-label="絞り込みと並び替え">
+  <div class="l-container">
+    <div class="p-collection-filters u-reveal" style="--d:0s" data-filters>
+      <div class="p-collection-filters__group p-collection-filters__group--use">
+        <p class="p-collection-filters__label u-mono">USE — 用途</p>
+        <div class="c-chip-row" data-chip-group="use"></div>
+      </div>
+
+      <div class="p-collection-filters__secondary">
+        <div class="p-collection-filters__group">
+          <p class="p-collection-filters__label u-mono">MAKER</p>
+          <div class="c-chip-row" data-chip-group="maker"></div>
+        </div>
+        <div class="p-collection-filters__group">
+          <p class="p-collection-filters__label u-mono">TYPE</p>
+          <div class="c-chip-row" data-chip-group="type"></div>
+        </div>
+        <div class="p-collection-filters__group">
+          <p class="p-collection-filters__label u-mono">RANK</p>
+          <div class="c-chip-row" data-chip-group="rank"></div>
+        </div>
+      </div>
+
+      <div class="p-collection-filters__group p-collection-filters__group--sort">
+        <p class="p-collection-filters__label u-mono">SORT — 並び替え</p>
+        <div class="c-chip-row" data-sort-group>
+          <button class="c-chip c-chip--reco" type="button" data-sort="reco" aria-pressed="true"><b>おすすめ順</b><small>&nbsp;</small></button>
+          <button class="c-chip" type="button" data-sort="priceAsc" aria-pressed="false"><b>料金の安い順</b><small>&nbsp;</small></button>
+          <button class="c-chip" type="button" data-sort="refDesc" aria-pressed="false"><b>参考購入価格の高い順</b><small>&nbsp;</small></button>
+        </div>
+      </div>
+    </div>
+
+    <aside class="c-memo" data-memo data-ref="N-02" data-type="app" data-plan="standard" data-confidence="確認済">
+      <h4>絞り込みの仕組み</h4>
+      <p>Shopify公式の無料アプリ（Search &amp; Discovery）で、用途・メーカー・種別・ランクなどの条件による絞り込みを設定します。1ストアあたり作成できるフィルターには上限（最大25個）があります。</p>
+    </aside>
+  </div>
+</section>
+
+<div class="l-container p-collection-scaleTight"><ul class="c-scale" aria-hidden="true"><li>-2</li><li>-1</li><li class="is-mid">0</li><li>+1</li><li>+2</li></ul></div>
+
+<!-- ============================================================ -->
+<section class="c-sec c-sec--tight" id="sheet" aria-label="機材一覧">
+  <div class="l-container">
+    <div class="p-collection-sheetHead u-reveal" style="--d:0s">
+      <p class="p-collection-sheetHead__count u-mono">該当 <span data-result-count>12</span> / <span data-total-count>12</span></p>
+      <button class="c-btn c-btn--ghost c-btn--sm" type="button" data-filter-reset>絞り込みを解除</button>
+    </div>
+
+    <div class="c-sheet u-reveal" style="--d:.06s" id="collectionSheet" data-sheet></div>
+
+    <div class="p-collection-empty" id="collectionEmpty" hidden>
+      <p class="p-collection-empty__eyebrow u-mono">NO RESULTS</p>
+      <p class="p-collection-empty__title">条件に一致する機材がありません。</p>
+      <p class="p-collection-empty__desc">絞り込みを減らすと、他の機材が表示されます。</p>
+      <button class="c-btn c-btn--ghost" type="button" data-filter-reset>絞り込みを解除する</button>
+    </div>
+
+    <aside class="c-memo" data-memo data-ref="N-01" data-type="native custom" data-plan="start" data-confidence="確認済">
+      <h4>機材データの持たせ方</h4>
+      <p>スペック表・審査ランク・用途タグは、商品データにメタフィールド／メタオブジェクトとして持たせます。この一覧やコマ番号表示は、そのデータを並べ替えて出しているだけです。具体的な項目設計は要件定義で決定します。</p>
+    </aside>
+  </div>
+</section>
+
+<div class="l-container"><ul class="c-scale" aria-hidden="true"><li>-2</li><li>-1</li><li class="is-mid">0</li><li>+1</li><li>+2</li></ul></div>
+
+<!-- ============================================================ -->
+<section class="c-sec c-sec--paper2" id="picks" aria-label="迷ったらこの3台">
+  <div class="l-container">
+    <div class="l-grid p-collection-picks">
+      <header class="c-sec__head p-collection-picks__head u-reveal" style="--d:0s">
+        <p class="c-sec__label"><span class="u-mono">No.01 — IF YOU'RE UNSURE</span></p>
+        <h2 class="c-sec__title">迷ったら、<br>この3台。</h2>
+        <p class="c-sec__lead">12台の中でも、はじめての方から特によく選ばれる3台です。用途が定まっていない時は、ここから試すのが近道です。</p>
+      </header>
+
+      <div class="p-collection-picks__grid u-reveal" id="collectionPicks" data-picks style="--d:.08s"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec" id="ranks" aria-label="機材ランクと審査レベル">
+  <div class="l-container">
+    <div class="l-grid p-collection-ranks">
+      <header class="c-sec__head p-collection-ranks__head u-reveal" style="--d:0s">
+        <p class="c-sec__label"><span class="u-mono">No.02 — RANK &amp; REVIEW</span></p>
+        <h2 class="c-sec__title">高額な機材ほど、<br>審査も厚くします。</h2>
+        <p class="c-sec__lead">参考購入価格に応じて機材をS・A・Bの3段階に分け、ランクが上がるほど確認する項目を重ねています。厳しくしすぎず、機材の価値に見合った分だけ。</p>
+        <p class="p-collection-ranks__cta"><a class="c-btn c-btn--ghost" href="security.html">安心の仕組みを詳しく見る</a></p>
+      </header>
+
+      <div class="p-collection-ranks__table u-reveal" style="--d:.08s">
+        <div class="c-table-wrap">
+          <table class="c-table">
+            <thead>
+              <tr><th>ランク</th><th>参考購入価格の目安</th><th>審査</th></tr>
+            </thead>
+            <tbody data-rank-body></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <aside class="c-memo" data-memo data-ref="N-17" data-type="native" data-plan="start" data-confidence="一部要確認">
+      <h4>用途・機種ごとのページ構造</h4>
+      <p>商品ページは「/products/機種のハンドル」、一覧ページは「/collections/用途名」のようなURL形式になります（ハンドル部分は編集可能）。用途別の一覧・機種ごとの商品ページを組み合わせて、検索エンジンに見つかりやすい構造を作ります。</p>
+    </aside>
+  </div>
+</section>
+</main>
 
 <footer class="c-footer">
   <div class="l-container c-footer__inner">
@@ -128,8 +262,8 @@
 
 <div class="c-toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="assets/js/data.js?v=09202257"></script>
-<script src="assets/js/site.js?v=09202257"></script>
-
+<script src="assets/js/data.js?v=09211036"></script>
+<script src="assets/js/site.js?v=09211036"></script>
+<script src="assets/js/collection.js?v=09211036"></script>
 </body>
 </html>

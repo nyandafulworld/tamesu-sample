@@ -16,8 +16,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=DM+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="assets/css/base.css?v=09202257">
-
+<link rel="stylesheet" href="assets/css/base.css?v=09211036">
+<link rel="stylesheet" href="assets/css/security.css?v=09211036">
 <noscript><style>.u-reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -59,7 +59,429 @@
   </div>
 </header>
 
-<main id="page-security" class="l-main"><section class="c-sec"><div class="l-container"><header class="c-sec__head"><p class="c-sec__label">No.00 — IN PROGRESS</p><h1 class="c-sec__title">security（制作中）</h1></header></div></section></main>
+<main id="page-security" class="l-main"><!-- ============================================================
+     security — 安心の仕組み（不正注文への備え）
+     ============================================================ -->
+
+<section class="c-sec c-sec--ink c-sec--tight p-security-hero" id="hero" aria-label="ヒーロー">
+  <div class="l-container">
+    <div class="p-security-hero__stage u-reveal" style="--d:0s">
+      <figure class="c-frame c-frame--169 p-security-hero__frame" data-frame>
+        <img src="assets/img/sec-hero.webp" width="1920" height="1080" alt="ウレタンフォームに収められたカメラと耐衝撃ハードケース">
+        <span class="c-frame__corner c-frame__corner--tl" aria-hidden="true"></span>
+        <span class="c-frame__corner c-frame__corner--tr" aria-hidden="true"></span>
+        <span class="c-frame__corner c-frame__corner--bl" aria-hidden="true"></span>
+        <span class="c-frame__corner c-frame__corner--br" aria-hidden="true"></span>
+        <span class="c-frame__cross" aria-hidden="true"></span>
+        <span class="c-frame__key" aria-hidden="true"><span class="c-frame__key-text">SEC-HERO</span><span class="c-frame__key-sub">NO IMAGE</span></span>
+      </figure>
+      <div class="p-security-hero__scrim" aria-hidden="true"></div>
+      <div class="p-security-hero__content">
+        <p class="p-security-hero__eyebrow">TAMESU — SECURITY DESIGN</p>
+        <h1 class="p-security-hero__title">人を疑うのではなく、<br>仕組みで守る。</h1>
+        <p class="p-security-hero__lead">盗用カードによる不正決済と、未返却・持ち逃げ。高額な機材の貸し借りにつきまとう、性質の異なる2つの不安を、申込から発送までひとつながりの仕組みで抑えます。安心して借りられる。安心して貸せる。</p>
+
+        <ul class="p-security-hero__facts">
+          <li>脅威を2つに分けて設計</li>
+          <li>備えは5つ、申込から発送まで一本に</li>
+          <li>機材ランクが上がるほど審査を厚く</li>
+          <li>発送前は必ず人が最終承認</li>
+        </ul>
+
+        <div class="p-security-hero__cta">
+          <a class="c-btn c-btn--ghost" href="#safeguards">5つの備えを見る</a>
+          <button class="c-btn c-btn--amber" type="button" data-demo="このサンプルでは本人確認フローは実装していません。ご利用の流れのページで手順をご覧いただけます。">先に本人確認を済ませる</button>
+        </div>
+      </div>
+    </div>
+    <p class="c-exif p-security-hero__exif">35mm&nbsp;&nbsp;f/4&nbsp;&nbsp;1/60&nbsp;&nbsp;ISO 400</p>
+  </div>
+</section>
+
+<div class="l-container"><ul class="c-scale" aria-hidden="true"><li>-2</li><li>-1</li><li class="is-mid">0</li><li>+1</li><li>+2</li></ul></div>
+
+<!-- ============================================================ -->
+<section class="c-sec" id="threats" aria-label="2つの脅威">
+  <div class="l-container">
+    <header class="c-sec__head u-reveal" style="--d:0s">
+      <p class="c-sec__label"><span class="u-mono">No.01 — TWO THREATS</span></p>
+      <h2 class="c-sec__title">盗用カードと、持ち逃げ。</h2>
+      <p class="c-sec__lead">高額な機材の貸し借りには、性質の異なる2つの不安がつきまといます。どちらも、1つの備えだけでは抑えられません。</p>
+    </header>
+
+    <div class="l-grid p-security-threats u-reveal" style="--d:.08s">
+      <article class="p-security-threats__item">
+        <p class="p-security-threats__mark u-wide" aria-hidden="true">A</p>
+        <p class="p-security-threats__tag u-mono">脅威 A</p>
+        <h3 class="p-security-threats__title">盗用カードによる不正決済</h3>
+        <p class="p-security-threats__body">他人のクレジットカード情報を使い、なりすましで注文されるケースです。カードの名義人には身に覚えのない請求が届き、そのまま発送してしまうと、後日カード会社からの取消によって機材代金を回収できなくなることがあります。</p>
+      </article>
+      <article class="p-security-threats__item">
+        <p class="p-security-threats__mark u-wide" aria-hidden="true">B</p>
+        <p class="p-security-threats__tag u-mono">脅威 B</p>
+        <h3 class="p-security-threats__title">未返却・持ち逃げ</h3>
+        <p class="p-security-threats__body">本人確認を終えた会員が、期限までに返却しない、あるいは受け取ったまま連絡が取れなくなるケースです。高額な機材ほど、1件の未返却がそのまま大きな損失につながります。</p>
+      </article>
+    </div>
+
+    <div class="c-notice p-security-threats__note u-reveal" style="--d:.14s">
+      <span class="c-notice__mark u-mono">NOTE</span>
+      <p>盗用カードは本人確認だけでは見抜けず、持ち逃げは決済の審査だけでは抑えられません。性質の違う備えを重ねる理由です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec c-sec--ink" id="safeguards" aria-label="5つの備え">
+  <div class="l-container">
+    <header class="c-sec__head c-sec__head--wide u-reveal" style="--d:0s">
+      <p class="c-sec__label"><span class="u-mono">No.02 — FIVE SAFEGUARDS</span></p>
+      <h2 class="c-sec__title">5つの備え。</h2>
+      <p class="c-sec__lead">申込から発送まで、性質の異なる5つの備えを一本の流れにしています。どれか1つが強いのではなく、重なっていることに意味があります。</p>
+    </header>
+
+    <div class="p-security-dial u-reveal" style="--d:.08s">
+      <svg class="p-security-dial__ruler" viewBox="0 0 1000 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <line class="p-security-dial__base" x1="0" y1="6" x2="1000" y2="6"></line>
+        <line class="p-security-dial__tick" x1="50" y1="6" x2="50" y2="16"></line>
+        <line class="p-security-dial__tick" x1="150" y1="6" x2="150" y2="16"></line>
+        <line class="p-security-dial__tick" x1="200" y1="6" x2="200" y2="16"></line>
+        <line class="p-security-dial__tick" x1="250" y1="6" x2="250" y2="16"></line>
+        <line class="p-security-dial__tick" x1="350" y1="6" x2="350" y2="16"></line>
+        <line class="p-security-dial__tick" x1="400" y1="6" x2="400" y2="16"></line>
+        <line class="p-security-dial__tick" x1="450" y1="6" x2="450" y2="16"></line>
+        <line class="p-security-dial__tick" x1="550" y1="6" x2="550" y2="16"></line>
+        <line class="p-security-dial__tick" x1="600" y1="6" x2="600" y2="16"></line>
+        <line class="p-security-dial__tick" x1="650" y1="6" x2="650" y2="16"></line>
+        <line class="p-security-dial__tick" x1="750" y1="6" x2="750" y2="16"></line>
+        <line class="p-security-dial__tick" x1="800" y1="6" x2="800" y2="16"></line>
+        <line class="p-security-dial__tick" x1="850" y1="6" x2="850" y2="16"></line>
+        <line class="p-security-dial__tick" x1="950" y1="6" x2="950" y2="16"></line>
+        <line class="p-security-dial__tick p-security-dial__tick--major" x1="100" y1="6" x2="100" y2="34"></line>
+        <line class="p-security-dial__tick p-security-dial__tick--major" x1="300" y1="6" x2="300" y2="34"></line>
+        <line class="p-security-dial__tick p-security-dial__tick--major" x1="500" y1="6" x2="500" y2="34"></line>
+        <line class="p-security-dial__tick p-security-dial__tick--major" x1="700" y1="6" x2="700" y2="34"></line>
+        <line class="p-security-dial__tick p-security-dial__tick--major" x1="900" y1="6" x2="900" y2="34"></line>
+      </svg>
+
+      <ol class="p-security-dial__row">
+        <li class="p-security-dial__item">
+          <p class="p-security-dial__no u-wide">01</p>
+          <p class="p-security-dial__title">本人確認</p>
+          <p class="p-security-dial__desc">顔写真付き身分証と、外部の本人確認サービスで照合します。人物の実在とご本人であることを確かめる最初の関門です。</p>
+        </li>
+        <li class="p-security-dial__item">
+          <p class="p-security-dial__no u-wide">02</p>
+          <p class="p-security-dial__title">決済の与信と3Dセキュア</p>
+          <p class="p-security-dial__desc">カード会社による追加の本人認証（3Dセキュア）を経て、与信を確保してから先へ進みます。</p>
+        </li>
+        <li class="p-security-dial__item">
+          <p class="p-security-dial__no u-wide">03</p>
+          <p class="p-security-dial__title">住所の三点照合</p>
+          <p class="p-security-dial__desc">本人確認書類・お支払い情報・配送先、3つの住所をスタッフの目で照らし合わせます。</p>
+        </li>
+        <li class="p-security-dial__item">
+          <p class="p-security-dial__no u-wide">04</p>
+          <p class="p-security-dial__title">不正注文の自動分析</p>
+          <p class="p-security-dial__desc">注文の傾向からリスクを低・中・高で自動判定し、高リスクの注文は自動で保留します。</p>
+        </li>
+        <li class="p-security-dial__item">
+          <p class="p-security-dial__no u-wide">05</p>
+          <p class="p-security-dial__title">発送前の承認</p>
+          <p class="p-security-dial__desc">ここまでの結果を担当者が最終確認し、承認してはじめて発送されます。</p>
+        </li>
+      </ol>
+    </div>
+
+    <aside class="c-memo" data-memo data-ref="N-08" data-type="native" data-plan="start" data-confidence="一部要確認">
+      <h4>決済の追加認証（3Dセキュア）</h4>
+      <p>Shopifyの決済には、カード会社が追加の本人確認を行う「3Dセキュア」という仕組みが組み込まれています。日本でも使われていますが、不正利用時の責任の所在は状況により異なる場合があります。</p>
+    </aside>
+
+    <div class="p-security-matrix u-reveal" style="--d:.1s">
+      <p class="p-security-matrix__label u-mono">MATRIX — どちらの脅威に効くか</p>
+      <div class="p-security-matrix__wrap">
+        <table class="p-security-matrix__table">
+          <thead>
+            <tr>
+              <th scope="col">備え</th>
+              <th scope="col"><span class="p-security-matrix__hHead">脅威 A</span><span class="p-security-matrix__hSub">盗用カードによる不正決済</span></th>
+              <th scope="col"><span class="p-security-matrix__hHead">脅威 B</span><span class="p-security-matrix__hSub">未返却・持ち逃げ</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">01 本人確認</th>
+              <td><span class="p-security-matrix__lvl is-partial">一部効く</span></td>
+              <td><span class="p-security-matrix__lvl is-hit">効く</span></td>
+            </tr>
+            <tr>
+              <th scope="row">02 決済の与信と3Dセキュア</th>
+              <td><span class="p-security-matrix__lvl is-hit">効く</span></td>
+              <td><span class="p-security-matrix__lvl is-none">効かない</span></td>
+            </tr>
+            <tr>
+              <th scope="row">03 住所の三点照合</th>
+              <td><span class="p-security-matrix__lvl is-hit">効く</span></td>
+              <td><span class="p-security-matrix__lvl is-hit">効く</span></td>
+            </tr>
+            <tr>
+              <th scope="row">04 不正注文の自動分析</th>
+              <td><span class="p-security-matrix__lvl is-hit">効く</span></td>
+              <td><span class="p-security-matrix__lvl is-none">効かない</span></td>
+            </tr>
+            <tr>
+              <th scope="row">05 発送前の承認</th>
+              <td><span class="p-security-matrix__lvl is-hit">効く</span></td>
+              <td><span class="p-security-matrix__lvl is-hit">効く</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="p-security-flow u-reveal" style="--d:.12s">
+      <p class="p-security-flow__label u-mono">THE ORDER — 手続きの順番</p>
+      <ol class="p-security-flow__list">
+        <li>申込</li>
+        <li>本人確認と審査</li>
+        <li>決済の与信</li>
+        <li>自動分析</li>
+        <li>三点照合</li>
+        <li>承認</li>
+        <li>発送</li>
+      </ol>
+      <p class="p-security-flow__note">自動分析の前に、本人確認と決済の与信を済ませておきます。</p>
+    </div>
+
+    <aside class="c-memo" data-memo data-ref="N-10" data-type="native" data-plan="standard" data-confidence="確認済">
+      <h4>高リスク注文の自動保留</h4>
+      <p>「高リスクの注文が来たら自動で保留してスタッフに知らせる」といった業務の自動化が、Shopify Flowという標準ツールで作れます。ただし一部の高度な機能は契約プランによって使える・使えないが分かれます。</p>
+    </aside>
+  </div>
+</section>
+
+<div class="l-container"><ul class="c-scale" aria-hidden="true"><li>-2</li><li>-1</li><li class="is-mid">0</li><li>+1</li><li>+2</li></ul></div>
+
+<!-- ============================================================ -->
+<section class="c-sec c-sec--paper2" id="limits" aria-label="自動分析の限界">
+  <div class="l-container">
+    <div class="l-grid p-security-limits">
+      <header class="c-sec__head p-security-limits__head u-reveal" style="--d:0s">
+        <p class="c-sec__label"><span class="u-mono">No.03 — AUTOMATION HAS LIMITS</span></p>
+        <h2 class="c-sec__title">自動分析は、<br>本人確認の<br>代わりになりません。</h2>
+      </header>
+
+      <div class="p-security-limits__body u-reveal" style="--d:.1s">
+        <p class="c-sec__lead">不正注文の自動分析が見ているのは、カードの使われ方についての手がかりです。入力されたカード情報の状況や、これまでの取引の傾向から不正利用の疑いを低・中・高で示しますが、これはカード不正の兆候であり、受け取った本人が期限までに返却してくれるかどうかは、この仕組みだけでは分かりません。だからこそ、本人確認・住所の三点照合・発送前の承認という、人の目を介した備えを別に重ねています。</p>
+
+        <div class="p-security-limits__compare">
+          <div class="p-security-limits__col">
+            <p class="p-security-limits__colLabel u-mono">見ているもの</p>
+            <p class="p-security-limits__colText">カードの使われ方についての手がかり（入力状況・これまでの取引の傾向）</p>
+          </div>
+          <div class="p-security-limits__col p-security-limits__col--muted">
+            <p class="p-security-limits__colLabel u-mono">見ていないもの</p>
+            <p class="p-security-limits__colText">受け取った本人が、期限までに返却してくれるかどうか</p>
+          </div>
+        </div>
+
+        <p class="p-security-limits__sub">住所の一致も、システムだけで機械的に照合してはいません。本人確認書類に記載の住所、お支払い情報の請求先住所、配送先住所の3つを、スタッフが実際に見比べます。海外を中心に設計された住所照合の仕組みは、日本国内で発行されたカードでは十分に機能しない場合があるためです。</p>
+
+        <aside class="c-memo" data-memo data-ref="N-09" data-type="native ops" data-plan="start" data-confidence="一部要確認">
+          <h4>不正注文の自動分析でわかること</h4>
+          <p>Shopifyには注文を自動でチェックし、不正利用の疑いを低・中・高で表示してくれる標準機能があります。ただし住所照合の仕組みは、日本で発行されたカードでは十分に機能しない可能性があり、本人確認の代わりにはなりません。</p>
+        </aside>
+
+        <aside class="c-memo" data-memo data-ref="N-11" data-type="native ops" data-plan="standard" data-confidence="一部要確認">
+          <h4>三点照合と発送保留</h4>
+          <p>発送前に注文を一時的にストップする「保留」機能があり、本人確認が終わるまで発送しない運用に使えます。ただし本人確認書類・お支払い情報・配送先の住所が一致しているかを自動で照合する機能はなく、人の目でのチェックが必要です。</p>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec" id="ranks" aria-label="機材ランク別の審査レベル">
+  <div class="l-container">
+    <header class="c-sec__head u-reveal" style="--d:0s">
+      <p class="c-sec__label"><span class="u-mono">No.04 — REVIEW BY RANK</span></p>
+      <h2 class="c-sec__title">高額な機材ほど、<br>審査を厚くします。</h2>
+      <p class="c-sec__lead">参考購入価格に応じて機材をB・A・Sの3段階に分け、01の本人確認と03の三点照合の厚みを変えます。</p>
+    </header>
+
+    <div class="c-table-wrap u-reveal" style="--d:.08s">
+      <table class="c-table c-table--zebra">
+        <thead>
+          <tr><th>ランク</th><th>目安</th><th>審査</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="c-badge c-badge--b">RANK B</span></td>
+            <td>参考購入価格 50万円未満</td>
+            <td>本人確認（顔写真付き身分証＋本人名義カード）</td>
+          </tr>
+          <tr>
+            <td><span class="c-badge c-badge--a">RANK A</span></td>
+            <td>50万〜80万円未満</td>
+            <td>B ＋ 本人確認書類の住所へのみ発送</td>
+          </tr>
+          <tr>
+            <td><span class="c-badge c-badge--s">RANK S</span></td>
+            <td>80万円以上</td>
+            <td>A ＋ 電話での在籍・意思確認、初回は対面受取（受領サイン）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec c-sec--paper2" id="forcustomer" aria-label="お客様にとっての安心">
+  <div class="l-container">
+    <header class="c-sec__head u-reveal" style="--d:0s">
+      <p class="c-sec__label"><span class="u-mono">No.05 — FOR YOU</span></p>
+      <h2 class="c-sec__title">借りる方にとっての安心。</h2>
+      <p class="c-sec__lead">仕組みは、貸す側だけのものではありません。借りる方が安心して使い続けられるための備えでもあります。</p>
+    </header>
+
+    <div class="p-security-forcustomer__block u-reveal" style="--d:.06s">
+      <h3 class="p-security-forcustomer__subhead">破損時の自己負担上限</h3>
+      <p class="p-security-forcustomer__lead">補償は3つから選べます。どのプランでも、上限を超えてご負担いただくことはありません。</p>
+      <div class="c-table-wrap">
+        <table class="c-table c-table--zebra">
+          <thead><tr><th>補償</th><th>追加料金</th><th class="u-num">自己負担上限</th></tr></thead>
+          <tbody>
+            <tr><td>標準補償</td><td>料金に含む</td><td class="u-num">50,000円</td></tr>
+            <tr class="p-security-forcustomer__reco"><td>あんしん補償<span class="p-security-forcustomer__recoTag u-mono">おすすめ</span></td><td>レンタル料の10%</td><td class="u-num">10,000円</td></tr>
+            <tr><td>フル補償</td><td>レンタル料の18%</td><td class="u-num">0円</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="c-notice">
+        <span class="c-notice__mark u-mono">NOTE</span>
+        <p>盗難・紛失・未返却は全プラン補償対象外です（規約に基づき実費を請求します）。</p>
+      </div>
+    </div>
+
+    <div class="l-grid p-security-forcustomer__inspect u-reveal" style="--d:.08s">
+      <div class="p-security-forcustomer__inspectMedia">
+        <figure class="c-frame c-frame--32" data-frame>
+          <img src="assets/img/flow-inspect.webp" width="1600" height="1067" alt="発送前にカメラを点検・清掃する技術スタッフの手元" loading="lazy">
+          <span class="c-frame__corner c-frame__corner--tl" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--tr" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--bl" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--br" aria-hidden="true"></span>
+          <span class="c-frame__cross" aria-hidden="true"></span>
+          <span class="c-frame__key" aria-hidden="true"><span class="c-frame__key-text">FLOW-INSPECT</span><span class="c-frame__key-sub">NO IMAGE</span></span>
+        </figure>
+        <p class="c-exif">60mm&nbsp;&nbsp;f/4&nbsp;&nbsp;1/100&nbsp;&nbsp;ISO 400</p>
+      </div>
+      <div class="p-security-forcustomer__inspectMedia p-security-forcustomer__inspectMedia--seal">
+        <figure class="c-frame c-frame--11" data-frame>
+          <img src="assets/img/case-seal.webp" width="1200" height="1200" alt="封緘シールが貼られた耐衝撃ハードケース" loading="lazy">
+          <span class="c-frame__corner c-frame__corner--tl" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--tr" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--bl" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--br" aria-hidden="true"></span>
+          <span class="c-frame__cross" aria-hidden="true"></span>
+          <span class="c-frame__key" aria-hidden="true"><span class="c-frame__key-text">CASE-SEAL</span><span class="c-frame__key-sub">NO IMAGE</span></span>
+        </figure>
+        <p class="c-exif">CASE&nbsp;&nbsp;SEALED</p>
+      </div>
+      <div class="p-security-forcustomer__inspectText">
+        <h3 class="p-security-forcustomer__subhead">発送前の全数点検と封緘</h3>
+        <p>すべての機材は、発送前に動作と外観をスタッフが1台ずつ点検します。点検を終えたケースには封緘シールを貼ってお届けするため、輸送中に開封されていないことをお客様自身でも確認いただけます。</p>
+      </div>
+    </div>
+
+    <div class="p-security-forcustomer__privacy u-reveal" style="--d:.1s">
+      <h3 class="p-security-forcustomer__subhead">個人情報の扱い</h3>
+      <div class="p-security-forcustomer__privacyGrid">
+        <div class="p-security-forcustomer__privacyCol">
+          <p class="p-security-forcustomer__privacyLabel u-mono">お預かりする情報</p>
+          <p class="p-security-forcustomer__privacyText">本人確認に必要な氏名・住所・生年月日・書類の記載情報と、お支払いに必要な情報。</p>
+        </div>
+        <div class="p-security-forcustomer__privacyCol p-security-forcustomer__privacyCol--muted">
+          <p class="p-security-forcustomer__privacyLabel u-mono">取得しない情報</p>
+          <p class="p-security-forcustomer__privacyText">マイナンバー、ご家族やお勤め先に関する情報、SNSアカウントなど、確認に不要な情報。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-security-forcustomer__block u-reveal" style="--d:.12s">
+      <h3 class="p-security-forcustomer__subhead">本人確認書類の保管</h3>
+      <p>送っていただいた本人確認書類は、そのままの形でサイトの管理画面には残しません。外部の本人確認サービス、またはアクセスできる人を限った別の保管先で管理する想定です。</p>
+
+      <aside class="c-memo" data-memo data-ref="N-05" data-type="external app ops" data-plan="start" data-confidence="一部要確認">
+        <h4>本人確認書類の保管先</h4>
+        <p>本人確認書類は、Shopify標準のファイル保管にはそのまま残しません。外部の本人確認サービスか、アクセス権限を絞れる別の保管先を使う想定です。費用や具体的な運用は要件定義で決定します。</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec" id="payment" aria-label="先の日付の予約とお支払いの確定時期">
+  <div class="l-container">
+    <div class="l-grid p-security-payment">
+      <header class="c-sec__head p-security-payment__head u-reveal" style="--d:0s">
+        <p class="c-sec__label"><span class="u-mono">No.06 — TIMING OF PAYMENT</span></p>
+        <h2 class="c-sec__title">予約が先の日程でも、<br>落ち着いてお使い<br>いただけるように。</h2>
+      </header>
+
+      <div class="p-security-payment__body u-reveal" style="--d:.1s">
+        <p class="c-sec__lead">クレジットカードの「仮の確保」には、有効な期間があります。ご利用日がまだ先の予約では、審査の承認時にお支払いを確定するか、ご利用日の直前にあらためてお手続きいただくかなど、いくつかの方法が考えられます。どの方法にするかは、要件定義で決定します。</p>
+
+        <aside class="c-memo" data-memo data-ref="N-07" data-type="native external app" data-plan="start" data-confidence="確認済">
+          <h4>与信の期限と先の日付の予約</h4>
+          <p>クレジットカードは「仮に確保」しておいて、あとで実際に引き落とす、という2段階の決済ができます。ただし仮確保には期限があり、先の日付の予約をそのまま仮確保だけで乗り切ることはできません。運用方法は要件定義で決めます。</p>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec c-sec--paper2" id="company" aria-label="運営会社の姿勢">
+  <div class="l-container">
+    <div class="l-grid p-security-company">
+      <div class="p-security-company__body u-reveal" style="--d:0s">
+        <p class="c-sec__label"><span class="u-mono">No.07 — ABOUT US</span></p>
+        <h2 class="c-sec__title">電気・空調設備工事の現場で培った、<br>機材管理の実直さ。</h2>
+        <p class="p-security-company__org u-mono">運営会社　（御社名が入ります）</p>
+        <p class="c-sec__lead">電気・空調設備の工事では、1台の欠品や1つの手順の抜けが、そのまま現場の信頼を損ないます。台帳での管理、点検、持ち出しと返却の記録。長年の現場で積み重ねてきた几帳面さを、高額カメラの管理にもそのまま生かしています。</p>
+      </div>
+
+      <div class="p-security-company__media u-reveal" style="--d:.1s">
+        <figure class="c-frame c-frame--32" data-frame>
+          <img src="assets/img/company-bench.webp" width="1600" height="1067" alt="設備工事の現場で培った機器管理を行う技術者" loading="lazy">
+          <span class="c-frame__corner c-frame__corner--tl" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--tr" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--bl" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--br" aria-hidden="true"></span>
+          <span class="c-frame__cross" aria-hidden="true"></span>
+          <span class="c-frame__key" aria-hidden="true"><span class="c-frame__key-text">COMPANY-BENCH</span><span class="c-frame__key-sub">NO IMAGE</span></span>
+        </figure>
+        <p class="c-exif">35mm&nbsp;&nbsp;f/2.8&nbsp;&nbsp;1/100&nbsp;&nbsp;ISO 500</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec c-sec--tight p-security-foot" id="note" aria-label="注記">
+  <div class="l-container">
+    <p class="p-security-foot__text">本ページは提案時点の設計案です。具体的な運用ルール・審査基準は要件定義で決定します。</p>
+    <div class="p-security-foot__links">
+      <a class="c-btn c-btn--ghost c-btn--sm" href="guide.html">ご利用の流れを見る</a>
+      <a class="c-btn c-btn--ghost c-btn--sm" href="collection.html">機材を見る</a>
+    </div>
+  </div>
+</section>
+</main>
 
 <footer class="c-footer">
   <div class="l-container c-footer__inner">
@@ -128,8 +550,8 @@
 
 <div class="c-toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="assets/js/data.js?v=09202257"></script>
-<script src="assets/js/site.js?v=09202257"></script>
+<script src="assets/js/data.js?v=09211036"></script>
+<script src="assets/js/site.js?v=09211036"></script>
 
 </body>
 </html>

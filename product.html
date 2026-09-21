@@ -16,8 +16,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=DM+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="assets/css/base.css?v=09202257">
-
+<link rel="stylesheet" href="assets/css/base.css?v=09211036">
+<link rel="stylesheet" href="assets/css/product.css?v=09211036">
 <noscript><style>.u-reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -59,7 +59,200 @@
   </div>
 </header>
 
-<main id="page-product" class="l-main"><section class="c-sec"><div class="l-container"><header class="c-sec__head"><p class="c-sec__label">No.00 — IN PROGRESS</p><h1 class="c-sec__title">product（制作中）</h1></header></div></section></main>
+<main id="page-product" class="l-main"><!-- ============================================================
+     product — 機材詳細（?h=<handle> で切替。既定 a1m2）
+     商品名・価格・スペック・画像はすべて data.js から product.js が描画する。
+     ============================================================ -->
+
+<section class="c-sec c-sec--tight" id="top" aria-label="商品詳細">
+  <div class="l-container">
+    <p class="p-product-crumb u-mono"><a href="collection.html">機材一覧</a><span aria-hidden="true"> ／ </span><span id="productCrumbName">—</span></p>
+
+    <div class="l-grid p-product-top">
+      <div class="p-product-top__gallery u-reveal" style="--d:0s">
+        <div class="p-product-gallery__main" id="productMainFrame" data-main-frame></div>
+        <p class="c-exif" id="productExif" data-exif></p>
+        <div class="p-product-gallery__thumbs" id="productThumbs" data-thumbs></div>
+        <p class="p-product-top__intro" id="productIntro" data-intro></p>
+      </div>
+
+      <div class="p-product-top__box u-reveal" style="--d:.1s">
+        <div class="p-product-box" id="productBox" data-box>
+          <p class="p-product-box__maker u-mono">&nbsp;</p>
+          <h1 class="p-product-box__name u-wide">読み込み中</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-product-top__memos">
+      <aside class="c-memo" data-memo data-ref="N-03" data-type="app" data-plan="start" data-confidence="要確認">
+        <h4>期間の選択とカレンダー</h4>
+        <p>期間チップと利用開始日から料金・返却日を計算する仕組み自体は個別開発です。貸出中の機材を自動でブロックする在庫連動や予約カレンダーは、専用の外部アプリを組み合わせて実現します（具体的な選定は要件定義で決定）。</p>
+      </aside>
+      <aside class="c-memo" data-memo data-ref="N-07" data-type="native external app" data-plan="start" data-confidence="確認済">
+        <h4>決済の確定タイミング</h4>
+        <p>クレジットカードは「仮確保（オーソリ）」してから、あとで確定（キャプチャ）する2段階決済ができますが、仮確保には標準7日間という期限があります。ご利用開始日が先の予約をどう決済するかは、要件定義で方式を決めます。</p>
+      </aside>
+      <aside class="c-memo" data-memo data-ref="N-06" data-type="native custom app" data-plan="standard" data-confidence="確認済">
+        <h4>承認済み会員だけが申し込める制御</h4>
+        <p>審査に通った会員に「承認済み」の目印（タグ）を付け、目印のない方には申込み導線を出さない・止めるという形で制御します。画面上で隠すだけの制御か、チェックアウト自体を止める制御にするかは、要件定義とプランにより変わります。</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<div class="l-container"><ul class="c-scale" aria-hidden="true"><li>-2</li><li>-1</li><li class="is-mid">0</li><li>+1</li><li>+2</li></ul></div>
+
+<!-- ============================================================ -->
+<section class="c-sec c-sec--paper2" id="specs" aria-label="スペック">
+  <div class="l-container">
+    <div class="l-grid p-product-specs">
+      <header class="c-sec__head p-product-specs__head u-reveal" style="--d:0s">
+        <p class="c-sec__label"><span class="u-mono">No.01 — SPEC</span></p>
+        <h2 class="c-sec__title">スペック</h2>
+        <p class="c-sec__lead">一般に公開されている範囲の仕様です。実機の個体差については、受取時の点検内容とあわせてご確認ください。</p>
+      </header>
+
+      <div class="p-product-specs__table u-reveal" style="--d:.08s">
+        <div class="c-spec" id="productSpecs" data-specs></div>
+      </div>
+    </div>
+
+    <aside class="c-memo" data-memo data-ref="N-01" data-type="native custom" data-plan="start" data-confidence="確認済">
+      <h4>スペック・セット内容の持たせ方</h4>
+      <p>スペック表やセット内容は、商品データにメタフィールド／メタオブジェクトとして持たせ、商品ページのセクションとして自由に配置します。項目の具体的な設計は要件定義で決定します。</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec" id="kit" aria-label="セット内容">
+  <div class="l-container">
+    <div class="l-grid p-product-kit">
+      <div class="p-product-kit__media u-reveal" style="--d:0s">
+        <figure class="c-frame c-frame--11" data-frame>
+          <img src="assets/img/kit-set.webp" width="1200" height="1200" alt="レンタルセットの内容物（ボディ、レンズ、バッテリー2個、充電器、ストラップ、メモリーカード）" loading="lazy">
+          <span class="c-frame__corner c-frame__corner--tl" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--tr" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--bl" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--br" aria-hidden="true"></span>
+          <span class="c-frame__cross" aria-hidden="true"></span>
+          <span class="c-frame__key" aria-hidden="true"><span class="c-frame__key-text">KIT-SET</span><span class="c-frame__key-sub">NO IMAGE</span></span>
+        </figure>
+        <p class="c-exif">SET&nbsp;&nbsp;7 ITEMS</p>
+      </div>
+
+      <div class="p-product-kit__body u-reveal" style="--d:.1s">
+        <p class="c-sec__label"><span class="u-mono">No.02 — WHAT'S INCLUDED</span></p>
+        <h2 class="c-sec__title">セット内容</h2>
+        <p class="c-sec__lead">届いてすぐ使える状態にして発送します。同梱物はすべて発送前に点検済みです。</p>
+        <ul class="p-product-kit__list" id="productKitList" data-kit-list></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec c-sec--paper2" id="rank" aria-label="この機材の審査レベル">
+  <div class="l-container">
+    <header class="c-sec__head u-reveal" style="--d:0s">
+      <p class="c-sec__label"><span class="u-mono">No.03 — REVIEW LEVEL</span></p>
+      <h2 class="c-sec__title">この機材の審査レベル。</h2>
+      <p class="c-sec__lead">参考購入価格が上がるほど、確認する項目を重ねています。ランクが上がるほど厳しいのではなく、機材の価値に見合った分だけ確認する、という考え方です。</p>
+    </header>
+
+    <div class="p-product-rankRow u-reveal" style="--d:.08s" id="productRankRow" data-rank-row></div>
+
+    <p class="p-product-rank__more"><a class="c-btn c-btn--ghost" href="security.html">安心の仕組みを詳しく見る</a></p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec" id="protection" aria-label="補償の比較">
+  <div class="l-container">
+    <div class="l-grid p-product-protection">
+      <header class="c-sec__head p-product-protection__head u-reveal" style="--d:0s">
+        <p class="c-sec__label"><span class="u-mono">No.04 — PROTECTION</span></p>
+        <h2 class="c-sec__title">補償を、<br>比べて選ぶ。</h2>
+        <p class="c-sec__lead">万が一の破損時に、いくらまで自己負担するかの違いです。多くのお客様は中央の「あんしん補償」を選んでいます。</p>
+      </header>
+
+      <div class="p-product-protection__table u-reveal" style="--d:.08s">
+        <div class="c-table-wrap">
+          <table class="c-table c-table--zebra">
+            <thead>
+              <tr><th>補償</th><th>追加料金</th><th class="u-num">破損時の自己負担上限</th></tr>
+            </thead>
+            <tbody data-protection-body></tbody>
+          </table>
+        </div>
+        <div class="c-notice c-notice--warn">
+          <span class="c-notice__mark u-mono">NOTE</span>
+          <p data-protection-note>盗難・紛失・未返却は全プラン補償対象外です（規約に基づき実費を請求します）。</p>
+        </div>
+      </div>
+    </div>
+
+    <aside class="c-memo" data-memo data-ref="N-13" data-type="native app custom" data-plan="start" data-confidence="一部要確認">
+      <h4>補償料・自己負担額の計算</h4>
+      <p>補償料の自動計算や自己負担上限の管理は、Shopify標準機能だけでは完結しません。下書き注文や請求書送付で後から請求する方法、または専用の外部アプリを組み合わせる方法があります。詳細は要件定義で決定します。</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec c-sec--paper2" id="related" aria-label="よく一緒に借りられる機材">
+  <div class="l-container">
+    <header class="c-sec__head u-reveal" style="--d:0s">
+      <p class="c-sec__label"><span class="u-mono">No.05 — YOU MAY ALSO LIKE</span></p>
+      <h2 class="c-sec__title">よく一緒に借りられる機材。</h2>
+      <p class="c-sec__lead">同じ用途で選ばれることが多い機材です。</p>
+    </header>
+
+    <div class="l-grid p-product-related__grid u-reveal" style="--d:.08s" id="productRelated" data-related></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec" id="faq" aria-label="よくある質問">
+  <div class="l-container">
+    <header class="c-sec__head u-reveal" style="--d:0s">
+      <p class="c-sec__label"><span class="u-mono">No.06 — FAQ</span></p>
+      <h2 class="c-sec__title">よくある質問</h2>
+    </header>
+
+    <div class="c-faq u-reveal" style="--d:.08s">
+      <details class="c-faq__item">
+        <summary><span class="c-faq__q u-mono">Q1</span><span>返却が期限に間に合わない場合はどうなりますか。</span></summary>
+        <p class="c-faq__a">延滞料金が発生します。延長を希望される場合は、期限より前にマイページまたはお問い合わせからご相談ください。</p>
+      </details>
+      <details class="c-faq__item">
+        <summary><span class="c-faq__q u-mono">Q2</span><span>補償はあとから変更できますか。</span></summary>
+        <p class="c-faq__a">ご予約確定前であれば変更いただけます。確定後の変更方法については要件定義で確定します。</p>
+      </details>
+      <details class="c-faq__item">
+        <summary><span class="c-faq__q u-mono">Q3</span><span>今週末の空きが0台でも予約できますか。</span></summary>
+        <p class="c-faq__a">今週末は予約が埋まっていても、翌週以降の日程であればご利用いただける場合があります。利用開始日を変更してご確認ください。</p>
+      </details>
+      <details class="c-faq__item">
+        <summary><span class="c-faq__q u-mono">Q4</span><span>本人確認がまだでも申し込めますか。</span></summary>
+        <p class="c-faq__a">本人確認が未完了の場合は、先に本人確認をお済ませください（無料・約3分）。確認が完了すると、審査を経てお申し込みいただけます。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- スマホ下部固定の料金バー -->
+<div class="p-product-priceBar" id="productPriceBar" data-price-bar>
+  <div class="l-container p-product-priceBar__inner">
+    <div class="p-product-priceBar__info">
+      <p class="p-product-priceBar__label u-mono"><span data-bar-period>3泊4日</span>・合計</p>
+      <p class="p-product-priceBar__amount u-wide"><span data-bar-total>0</span><small>円</small></p>
+    </div>
+    <button class="c-btn c-btn--primary" type="button" data-bar-cta data-demo="このサイトはサンプルです。実際の予約・決済は行われません。">申し込む</button>
+  </div>
+</div>
+</main>
 
 <footer class="c-footer">
   <div class="l-container c-footer__inner">
@@ -128,8 +321,8 @@
 
 <div class="c-toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="assets/js/data.js?v=09202257"></script>
-<script src="assets/js/site.js?v=09202257"></script>
-
+<script src="assets/js/data.js?v=09211036"></script>
+<script src="assets/js/site.js?v=09211036"></script>
+<script src="assets/js/product.js?v=09211036"></script>
 </body>
 </html>

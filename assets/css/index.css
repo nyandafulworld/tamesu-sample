@@ -93,13 +93,17 @@
 
 /* ---- 運営会社 ---- */
 .p-index-company__media{grid-column:1/6;position:relative;}
-.p-index-company__body{grid-column:6/13;}
+.p-index-company__body{grid-column:7/13;}
 @media(max-width:899px){
   .p-index-company__media,.p-index-company__body{grid-column:1/-1;}
 }
+/* ファインダー枠の四隅は、明るい被写体の上でも見えるよう淡い縁取りを添える */
+.p-index-company__media .c-frame__corner{
+  filter:drop-shadow(0 0 1.5px var(--c-paper-3)) drop-shadow(0 0 1.5px var(--c-paper-3));
+}
 .p-index-company__inset{
-  position:absolute;width:44%;right:-6%;bottom:-9%;
-  border:6px solid var(--c-paper);box-shadow:var(--shadow-frame);
+  position:absolute;width:38%;right:-4%;bottom:-7%;
+  border:7px solid var(--c-paper);box-shadow:var(--shadow-frame);
 }
 @media(max-width:899px){
   .p-index-company__inset{position:static;width:64%;margin-top:16px;border-width:4px;}

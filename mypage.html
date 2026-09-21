@@ -16,8 +16,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=DM+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="assets/css/base.css?v=09202257">
-
+<link rel="stylesheet" href="assets/css/base.css?v=09211036">
+<link rel="stylesheet" href="assets/css/mypage.css?v=09211036">
 <noscript><style>.u-reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -59,7 +59,202 @@
   </div>
 </header>
 
-<main id="page-mypage" class="l-main"><section class="c-sec"><div class="l-container"><header class="c-sec__head"><p class="c-sec__label">No.00 — IN PROGRESS</p><h1 class="c-sec__title">mypage（制作中）</h1></header></div></section></main>
+<main id="page-mypage" class="l-main"><!-- ============================================================
+     mypage — マイページ（会員ヘッダー＋管理的シェル）
+     人物・注文は data.js の persona / orders と完全に一致させる
+     （#T-1042 は admin ページと共通の人物・注文）
+     ============================================================ -->
+
+<section class="c-sec c-sec--tight" id="header" aria-label="会員ヘッダー">
+  <div class="l-container">
+    <div class="l-grid p-mypage-header">
+      <div class="p-mypage-header__id u-reveal" style="--d:0s">
+        <p class="p-mypage-header__eyebrow u-mono">TAMESU — MY PAGE ／ SIGNED IN</p>
+        <h1 class="p-mypage-header__name">三浦 健一 様<span class="p-mypage-header__sample">（サンプル）</span></h1>
+        <p class="p-mypage-header__no"><span class="u-mono">MEMBER No.</span> TM-00128</p>
+      </div>
+
+      <div class="p-mypage-header__verify u-reveal" style="--d:.08s">
+        <p class="p-mypage-header__verifyLabel u-mono">本人確認ステータス</p>
+        <ol class="p-mypage-steps p-mypage-steps--kyc">
+          <li class="is-done"><span class="p-mypage-steps__label">提出</span></li>
+          <li class="is-done"><span class="p-mypage-steps__label">確認中</span></li>
+          <li class="is-done is-current"><span class="p-mypage-steps__label">承認</span></li>
+        </ol>
+        <p class="p-mypage-header__verifyNote"><span class="c-badge c-badge--s">RANK S</span>本人確認済み（ランクSまで承認）</p>
+      </div>
+    </div>
+
+    <aside class="c-memo" data-memo data-ref="N-04" data-type="native app custom" data-plan="start" data-confidence="確認済">
+      <h4>マイページの拡張範囲</h4>
+      <p>会員ページの仕組みには「新方式」と「従来方式」があります。新方式はパスワード不要でログインでき、注文一覧・注文詳細・プロフィールなど決められた挿入位置に、決められた部品だけを追加できます（任意のHTMLは描画できません）。</p>
+    </aside>
+  </div>
+</section>
+
+<section class="c-sec c-sec--paper2" id="shell" aria-label="マイページ本体">
+  <div class="l-container">
+    <div class="l-grid p-mypage-shell">
+
+      <aside class="p-mypage-nav u-reveal" style="--d:0s" aria-label="マイページ内ナビゲーション">
+        <p class="p-mypage-nav__label u-mono">MENU</p>
+        <nav>
+          <a class="p-mypage-nav__link" href="#current"><span class="u-mono">01</span>現在の予約</a>
+          <a class="p-mypage-nav__link" href="#return"><span class="u-mono">02</span>返却手続き</a>
+          <a class="p-mypage-nav__link" href="#history"><span class="u-mono">03</span>過去の利用履歴</a>
+          <a class="p-mypage-nav__link" href="#account"><span class="u-mono">04</span>登録情報</a>
+          <a class="p-mypage-nav__link" href="#resubmit"><span class="u-mono">05</span>本人確認書類</a>
+          <a class="p-mypage-nav__link" href="#contact"><span class="u-mono">06</span>お問い合わせ</a>
+        </nav>
+      </aside>
+
+      <div class="p-mypage-content u-reveal" style="--d:.06s">
+
+        <article class="p-mypage-block" id="current">
+          <header class="p-mypage-block__head">
+            <p class="p-mypage-block__label u-mono">No.01 — CURRENT RESERVATION</p>
+            <h2 class="p-mypage-block__title">現在の予約</h2>
+          </header>
+
+          <div class="p-mypage-order">
+            <div class="p-mypage-order__top">
+              <p class="p-mypage-order__id u-mono">#T-1042</p>
+              <span class="c-badge c-badge--wait">審査完了・発送準備中</span>
+            </div>
+            <p class="p-mypage-order__item">α1 II・3泊4日・あんしん補償</p>
+
+            <ol class="p-mypage-steps p-mypage-steps--order">
+              <li class="is-done"><span class="p-mypage-steps__label">申込</span></li>
+              <li class="is-done"><span class="p-mypage-steps__label">審査</span></li>
+              <li class="is-done is-current"><span class="p-mypage-steps__label">発送準備</span></li>
+              <li><span class="p-mypage-steps__label">お届け</span></li>
+              <li><span class="p-mypage-steps__label">ご利用中</span></li>
+              <li><span class="p-mypage-steps__label">返却</span></li>
+            </ol>
+
+            <div class="p-mypage-order__dates">
+              <div class="p-mypage-order__date">
+                <p class="p-mypage-order__dateLabel u-mono">受取予定日</p>
+                <p class="p-mypage-order__dateValue u-wide" id="mypageReceiveDate">計算中</p>
+              </div>
+              <div class="p-mypage-order__date">
+                <p class="p-mypage-order__dateLabel u-mono">返却期限</p>
+                <p class="p-mypage-order__dateValue u-wide" id="mypageReturnDate">計算中</p>
+              </div>
+            </div>
+            <p class="p-mypage-order__hint">受取予定日・返却期限は、本日の日付をもとに自動で計算した参考値です。</p>
+          </div>
+
+          <aside class="c-memo" data-memo data-ref="N-06" data-type="native custom app" data-plan="standard" data-confidence="確認済">
+            <h4>審査ステータスの持たせ方</h4>
+            <p>審査に通った会員には「承認済み」のような目印（タグ）を付けて管理します。目印がない方には画面上で申込みを見せない・止めるという形で制御しますが、これは表示上の制御であり、より確実に止めるには追加の仕組みが必要です。</p>
+          </aside>
+        </article>
+
+        <article class="p-mypage-block" id="return">
+          <header class="p-mypage-block__head">
+            <p class="p-mypage-block__label u-mono">No.02 — RETURN REQUEST</p>
+            <h2 class="p-mypage-block__title">返却手続き</h2>
+            <p class="p-mypage-block__lead">貸出中の機材があるときに、返却方法をお申し込みいただけます。</p>
+          </header>
+
+          <div class="p-mypage-return">
+            <p class="p-mypage-return__current"><span class="c-badge c-badge--ok">貸出中</span>#T-1041　EOS R5 Mark II</p>
+
+            <p class="p-mypage-return__stepLabel u-mono">返却方法を選択</p>
+            <div class="c-chip-row">
+              <button class="c-chip" type="button" data-return-chip aria-pressed="true"><b>宅配便の集荷</b><small>ご自宅まで集荷</small></button>
+              <button class="c-chip" type="button" data-return-chip aria-pressed="false"><b>コンビニ持込</b><small>近くの店舗から発送</small></button>
+              <button class="c-chip" type="button" data-return-chip aria-pressed="false"><b>営業所持込</b><small>配送会社の窓口へ</small></button>
+            </div>
+
+            <p class="p-mypage-return__note">返送用の伝票は、お届け時のセットに同梱されています。伝票を使って、選んだ方法で発送してください。</p>
+
+            <button class="c-btn c-btn--primary" type="button" data-return-submit data-demo="宅配便の集荷で返却の申し込みを受け付けました（サンプルのため実際には送信されません）。">この内容で返却を申し込む</button>
+          </div>
+
+          <aside class="c-memo" data-memo data-ref="N-14" data-type="native app ops" data-plan="start" data-confidence="要確認">
+            <h4>返却申請の実装</h4>
+            <p>返却申請は、標準の「返品」機能（本来は返金・交換向け）を工夫して流用するか、専用フォームとスタッフの手動対応で実現する方法があります。標準機能はレンタル返却専用ではない点に注意が必要です。</p>
+          </aside>
+
+          <aside class="c-memo" data-memo data-ref="N-12" data-type="native app custom external" data-plan="start" data-confidence="要確認">
+            <h4>ステータス変更の通知</h4>
+            <p>発送完了などの定型メールは標準機能で自動送信できます。ただし返却受付のようにお客様ごとに内容が変わる通知の自動送信には、別の仕組みが必要です（要件定義で決定）。</p>
+          </aside>
+        </article>
+
+        <article class="p-mypage-block" id="history">
+          <header class="p-mypage-block__head">
+            <p class="p-mypage-block__label u-mono">No.03 — HISTORY</p>
+            <h2 class="p-mypage-block__title">過去の利用履歴</h2>
+          </header>
+
+          <div class="c-table-wrap">
+            <table class="c-table c-table--zebra">
+              <thead>
+                <tr><th>注文番号</th><th>内容</th><th>状態</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="u-mono">#T-1039</td>
+                  <td>α7R V</td>
+                  <td><span class="c-badge c-badge--ok">返却済み・検品完了</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="p-mypage-block" id="account">
+          <header class="p-mypage-block__head">
+            <p class="p-mypage-block__label u-mono">No.04 — ACCOUNT</p>
+            <h2 class="p-mypage-block__title">登録情報</h2>
+          </header>
+
+          <div class="c-spec">
+            <div class="c-spec__row"><p class="c-spec__label">お届け先住所</p><p class="c-spec__value">福岡県福岡市中央区サンプル町1-2-3</p></div>
+            <div class="c-spec__row"><p class="c-spec__label">電話番号</p><p class="c-spec__value">090-0000-0000</p></div>
+            <div class="c-spec__row"><p class="c-spec__label">会員No.</p><p class="c-spec__value">TM-00128</p></div>
+          </div>
+
+          <div class="c-notice">
+            <span class="c-notice__mark u-mono">NOTE</span>
+            <p>お届け先は、本人確認済みの住所にのみ発送します。住所を変更する場合は、再度本人確認が必要です。</p>
+          </div>
+
+          <p class="p-mypage-block__actions">
+            <button class="c-btn c-btn--ghost c-btn--sm" type="button" data-demo="このサンプルでは住所変更フローは実装していません。変更には本人確認の再提出が必要です。">住所を変更する</button>
+          </p>
+        </article>
+
+        <article class="p-mypage-block" id="resubmit">
+          <header class="p-mypage-block__head">
+            <p class="p-mypage-block__label u-mono">No.05 — RE-VERIFY</p>
+            <h2 class="p-mypage-block__title">本人確認書類の再提出</h2>
+            <p class="p-mypage-block__lead">書類の有効期限が近づいた場合や、ご住所などの記載事項に変更があった場合は、こちらから再提出してください。</p>
+          </header>
+          <p class="p-mypage-block__actions">
+            <button class="c-btn c-btn--ghost" type="button" data-demo="このサンプルでは本人確認書類の再提出フローは実装していません。">本人確認書類を再提出する</button>
+          </p>
+        </article>
+
+        <article class="p-mypage-block" id="contact">
+          <header class="p-mypage-block__head">
+            <p class="p-mypage-block__label u-mono">No.06 — CONTACT</p>
+            <h2 class="p-mypage-block__title">お問い合わせ</h2>
+            <p class="p-mypage-block__lead">ご予約・審査・返却について、ご不明な点はお問い合わせフォームよりご連絡ください。</p>
+          </header>
+          <p class="p-mypage-block__actions">
+            <button class="c-btn c-btn--primary" type="button" data-demo="このサンプルではお問い合わせフォームは実装していません。">お問い合わせフォームを開く</button>
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+</main>
 
 <footer class="c-footer">
   <div class="l-container c-footer__inner">
@@ -128,8 +323,8 @@
 
 <div class="c-toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="assets/js/data.js?v=09202257"></script>
-<script src="assets/js/site.js?v=09202257"></script>
-
+<script src="assets/js/data.js?v=09211036"></script>
+<script src="assets/js/site.js?v=09211036"></script>
+<script src="assets/js/mypage.js?v=09211036"></script>
 </body>
 </html>

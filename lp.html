@@ -16,8 +16,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=DM+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="assets/css/base.css?v=09202257">
-
+<link rel="stylesheet" href="assets/css/base.css?v=09211036">
+<link rel="stylesheet" href="assets/css/lp.css?v=09211036">
 <noscript><style>.u-reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -59,7 +59,401 @@
   </div>
 </header>
 
-<main id="page-lp" class="l-main"><section class="c-sec"><div class="l-container"><header class="c-sec__head"><p class="c-sec__label">No.00 — IN PROGRESS</p><h1 class="c-sec__title">lp（制作中）</h1></header></div></section></main>
+<main id="page-lp" class="l-main"><!-- ============================================================
+     lp — 広告用ランディングページ（9セクション）
+     広告 → LP → 機材を見る／先に本人確認 の一本道。chrome=lp（最小ヘッダー＋簡易フッター）
+     ============================================================ -->
+
+<section class="c-sec c-sec--tight" id="hero" aria-label="ヒーロー">
+  <div class="l-container">
+    <div class="l-grid p-lp-hero">
+      <div class="p-lp-hero__content u-reveal" style="--d:0s">
+        <p class="p-lp-hero__eyebrow">TAMESU — HIGH-END CAMERA RENTAL</p>
+        <h1 class="p-lp-hero__title">100万円のカメラ、<br>買う前に試しませんか？</h1>
+        <p class="p-lp-hero__sub">買って後悔する前に、3泊4日で確かめる。</p>
+        <p class="p-lp-hero__lead">重さ、操作感、実際の写り。スペック表や口コミだけでは分からないことを、届いたその日から自分の手で確かめてください。</p>
+
+        <ul class="p-lp-hero__trust">
+          <li>本人確認済みの会員制</li>
+          <li>破損時の自己負担上限を明示</li>
+          <li>発送前に全数点検</li>
+        </ul>
+
+        <div class="p-lp-hero__cta">
+          <a class="c-btn c-btn--primary" href="collection.html?use=trial" data-cv="view_collection">試せる機材を見る</a>
+          <button class="c-btn c-btn--ghost" type="button" data-demo="このサンプルでは本人確認フローは実装していません。ご利用の流れのページで手順をご覧いただけます。" data-cv="start_kyc">先に本人確認だけ済ませる（無料・約3分）</button>
+        </div>
+
+        <aside class="c-memo" data-memo data-ref="N-16" data-type="native app" data-plan="growth" data-confidence="確認済">
+          <h4>このページの作り方</h4>
+          <p>このLPは、Shopify標準の「代替テンプレート」機能で作る想定です。より自由な表現が必要な場合は、専用の制作アプリ（有料）を追加できます。費用や仕様は要件定義で決定します。</p>
+        </aside>
+
+        <aside class="c-memo" data-memo data-ref="N-15" data-type="native app custom external" data-plan="growth" data-confidence="一部要確認">
+          <h4>広告の効果測定</h4>
+          <p>このボタンには計測用の目印を付けています。「機材を見る」「先に本人確認」を広告の成果地点（コンバージョン）として計測する想定です。GA4・Google広告・Meta広告のタグ設定は要件定義で決定します。</p>
+        </aside>
+      </div>
+
+      <div class="p-lp-hero__media u-reveal" style="--d:.12s">
+        <figure class="c-frame c-frame--169" data-frame>
+          <img src="assets/img/lp-hero.webp" width="1920" height="1080" alt="自宅で届いたレンタルカメラを手に取る男性">
+          <span class="c-frame__corner c-frame__corner--tl" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--tr" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--bl" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--br" aria-hidden="true"></span>
+          <span class="c-frame__cross" aria-hidden="true"></span>
+          <span class="c-frame__key" aria-hidden="true"><span class="c-frame__key-text">LP-HERO</span><span class="c-frame__key-sub">NO IMAGE</span></span>
+        </figure>
+        <p class="c-exif">35mm&nbsp;&nbsp;f/2&nbsp;&nbsp;1/125&nbsp;&nbsp;ISO 320</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="l-container"><ul class="c-scale" aria-hidden="true"><li>-2</li><li>-1</li><li class="is-mid">0</li><li>+1</li><li>+2</li></ul></div>
+
+<!-- ============================================================ -->
+<section class="c-sec c-sec--paper2" id="regret" aria-label="悩みの共感">
+  <div class="l-container">
+    <div class="l-grid p-lp-regret">
+      <div class="p-lp-regret__media u-reveal" style="--d:0s">
+        <figure class="c-frame c-frame--32" data-frame>
+          <img src="assets/img/lp-regret.webp" width="1600" height="1067" alt="高額なカメラの購入を前に悩む男性" loading="lazy">
+          <span class="c-frame__corner c-frame__corner--tl" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--tr" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--bl" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--br" aria-hidden="true"></span>
+          <span class="c-frame__cross" aria-hidden="true"></span>
+          <span class="c-frame__key" aria-hidden="true"><span class="c-frame__key-text">LP-REGRET</span><span class="c-frame__key-sub">NO IMAGE</span></span>
+        </figure>
+        <p class="c-exif">50mm&nbsp;&nbsp;f/2&nbsp;&nbsp;1/60&nbsp;&nbsp;ISO 800</p>
+      </div>
+
+      <div class="p-lp-regret__body u-reveal" style="--d:.1s">
+        <header class="c-sec__head c-sec__head--wide">
+          <p class="c-sec__label"><span class="u-mono">No.01 — BEFORE YOU BUY</span></p>
+          <h2 class="c-sec__title">スペック表は、重さも、<br>手のなじみも、<br>教えてくれません。</h2>
+        </header>
+        <p class="c-sec__lead">口コミの星の数と、実際に自分の手で持ったときの感触は、しばしば別のものです。100万円前後の買い物は、たいてい一度きりの判断になります。</p>
+        <p class="p-lp-regret__text">持ってみたら重すぎた。画角が思っていたのと違った。動画のAFが期待ほどではなかった。<br>そう感じても、多くの場合、後戻りはできません。買う前に試す3日間は、その損失を避けるための時間です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec" id="confirm" aria-label="3泊4日で確かめられること">
+  <div class="l-container">
+    <header class="c-sec__head u-reveal" style="--d:0s">
+      <p class="c-sec__label"><span class="u-mono">No.02 — TRY IT FOR REAL</span></p>
+      <h2 class="c-sec__title">3泊4日あれば、<br>ここまで確かめられます。</h2>
+      <p class="c-sec__lead">作例だけでなく、日常の中で使い倒してみて、はじめて分かることがあります。</p>
+    </header>
+
+    <div class="l-grid p-lp-confirm u-reveal" style="--d:.08s">
+      <div class="p-lp-confirm__media">
+        <figure class="c-frame c-frame--32" data-frame>
+          <img src="assets/img/scene-trial.webp" width="1600" height="1067" alt="購入前に2台のカメラを自宅で比較する" loading="lazy">
+          <span class="c-frame__corner c-frame__corner--tl" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--tr" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--bl" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--br" aria-hidden="true"></span>
+          <span class="c-frame__cross" aria-hidden="true"></span>
+          <span class="c-frame__key" aria-hidden="true"><span class="c-frame__key-text">SCENE-TRIAL</span><span class="c-frame__key-sub">NO IMAGE</span></span>
+        </figure>
+        <p class="c-exif">50mm&nbsp;&nbsp;f/2.8&nbsp;&nbsp;1/80&nbsp;&nbsp;ISO 640</p>
+      </div>
+
+      <ol class="p-lp-confirm__list">
+        <li class="p-lp-confirm__item">
+          <p class="p-lp-confirm__no u-wide">01</p>
+          <div class="p-lp-confirm__body">
+            <h3 class="p-lp-confirm__title">重さと握り</h3>
+            <p class="p-lp-confirm__desc">スペック欄の「約◯◯g」では伝わらない、構えたときのバランスと疲れにくさ。</p>
+          </div>
+        </li>
+        <li class="p-lp-confirm__item">
+          <p class="p-lp-confirm__no u-wide">02</p>
+          <div class="p-lp-confirm__body">
+            <h3 class="p-lp-confirm__title">AFの食いつき</h3>
+            <p class="p-lp-confirm__desc">動き回る子どもやペットに、ピントがどこまで粘ってくれるか。</p>
+          </div>
+        </li>
+        <li class="p-lp-confirm__item">
+          <p class="p-lp-confirm__no u-wide">03</p>
+          <div class="p-lp-confirm__body">
+            <h3 class="p-lp-confirm__title">高感度の粘り</h3>
+            <p class="p-lp-confirm__desc">屋内や夜のシーンで、ノイズがどこまで気にならずに残せるか。</p>
+          </div>
+        </li>
+        <li class="p-lp-confirm__item">
+          <p class="p-lp-confirm__no u-wide">04</p>
+          <div class="p-lp-confirm__body">
+            <h3 class="p-lp-confirm__title">手持ちのレンズやPCとの相性</h3>
+            <p class="p-lp-confirm__desc">いま使っているレンズや編集環境と、無理なく組み合わせられるか。</p>
+          </div>
+        </li>
+        <li class="p-lp-confirm__item">
+          <p class="p-lp-confirm__no u-wide">05</p>
+          <div class="p-lp-confirm__body">
+            <h3 class="p-lp-confirm__title">家族や友人の反応</h3>
+            <p class="p-lp-confirm__desc">見せたときの率直な一言も、判断材料のひとつです。</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec c-sec--paper2" id="price" aria-label="料金例">
+  <div class="l-container">
+    <header class="c-sec__head u-reveal" style="--d:0s">
+      <p class="c-sec__label"><span class="u-mono">No.03 — PRICE EXAMPLE</span></p>
+      <h2 class="c-sec__title">100万円前後の判断を、<br>3泊4日ぶんの金額で。</h2>
+      <p class="c-sec__lead">参考購入価格と、3泊4日のレンタル料を並べました。金額は目安です。</p>
+    </header>
+
+    <div class="p-lp-price__grid u-reveal" id="lpPriceGrid" data-lp-price style="--d:.08s"></div>
+
+    <aside class="c-memo" data-memo data-ref="N-17" data-type="native" data-plan="growth" data-confidence="確認済">
+      <h4>検索から来る方への導線</h4>
+      <p>このページは広告専用で、検索結果には表示されません（noindex）。検索で探している方には、機種ごとの商品ページや用途別の一覧など、SEOを見据えた構造のページが別途対応します。</p>
+    </aside>
+  </div>
+</section>
+
+<div class="l-container"><ul class="c-scale" aria-hidden="true"><li>-2</li><li>-1</li><li class="is-mid">0</li><li>+1</li><li>+2</li></ul></div>
+
+<!-- ============================================================ -->
+<section class="c-sec" id="safe" aria-label="安心の3点">
+  <div class="l-container">
+    <div class="l-grid p-lp-safe">
+      <div class="p-lp-safe__media u-reveal" style="--d:0s">
+        <figure class="c-frame c-frame--32" data-frame>
+          <img src="assets/img/flow-inspect.webp" width="1600" height="1067" alt="発送前にカメラを点検・清掃する技術スタッフの手元" loading="lazy">
+          <span class="c-frame__corner c-frame__corner--tl" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--tr" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--bl" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--br" aria-hidden="true"></span>
+          <span class="c-frame__cross" aria-hidden="true"></span>
+          <span class="c-frame__key" aria-hidden="true"><span class="c-frame__key-text">FLOW-INSPECT</span><span class="c-frame__key-sub">NO IMAGE</span></span>
+        </figure>
+        <figure class="c-frame c-frame--11 p-lp-safe__inset" data-frame>
+          <img src="assets/img/case-seal.webp" width="1200" height="1200" alt="封緘シールが貼られた耐衝撃ハードケース" loading="lazy">
+          <span class="c-frame__corner c-frame__corner--tl" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--tr" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--bl" aria-hidden="true"></span>
+          <span class="c-frame__corner c-frame__corner--br" aria-hidden="true"></span>
+          <span class="c-frame__cross" aria-hidden="true"></span>
+          <span class="c-frame__key" aria-hidden="true"><span class="c-frame__key-text">CASE-SEAL</span><span class="c-frame__key-sub">NO IMAGE</span></span>
+        </figure>
+      </div>
+
+      <div class="p-lp-safe__body u-reveal" style="--d:.1s">
+        <p class="c-sec__label"><span class="u-mono">No.04 — PEACE OF MIND</span></p>
+        <h2 class="c-sec__title">安心して借りる、<br>3つの理由。</h2>
+
+        <ol class="p-lp-safe__list">
+          <li class="p-lp-safe__item">
+            <p class="p-lp-safe__no u-wide">01</p>
+            <p class="p-lp-safe__title">本人確認済みの会員制</p>
+            <p class="p-lp-safe__desc">顔写真付き身分証と、本人名義のカードで確認した会員だけがご利用いただけます。</p>
+          </li>
+          <li class="p-lp-safe__item">
+            <p class="p-lp-safe__no u-wide">02</p>
+            <p class="p-lp-safe__title">自己負担上限を明示</p>
+            <p class="p-lp-safe__desc">補償を選んでいただくことで、万一の破損時に自己負担する金額の上限をあらかじめ決められます。</p>
+          </li>
+          <li class="p-lp-safe__item">
+            <p class="p-lp-safe__no u-wide">03</p>
+            <p class="p-lp-safe__title">発送前の点検と封緘</p>
+            <p class="p-lp-safe__desc">発送前に全数点検し、ケースに封緘シールを貼ってお届けします。</p>
+          </li>
+        </ol>
+
+        <p class="p-lp-safe__cta"><a class="c-btn c-btn--ghost" href="security.html">安心の仕組みを詳しく見る</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec c-sec--paper2" id="flow" aria-label="ご利用の流れ">
+  <div class="l-container">
+    <header class="c-sec__head u-reveal" style="--d:0s">
+      <p class="c-sec__label"><span class="u-mono">No.05 — HOW IT WORKS</span></p>
+      <h2 class="c-sec__title">お申し込みから、4つの工程。</h2>
+      <p class="c-sec__lead">先に会員登録と本人確認だけ済ませておくと、機材が決まったときの手続きがスムーズです。</p>
+    </header>
+
+    <div class="u-reveal" style="--d:.08s">
+      <ol class="c-steps c-steps--row">
+        <li class="c-steps__item is-active">
+          <p class="c-steps__no">01</p>
+          <p class="c-steps__title">会員登録・本人確認</p>
+          <p class="c-steps__desc">顔写真付き身分証と、本人名義のカードをご用意ください。</p>
+          <p class="c-steps__time">目安 約3分</p>
+        </li>
+        <li class="c-steps__item">
+          <p class="c-steps__no">02</p>
+          <p class="c-steps__title">審査</p>
+          <p class="c-steps__desc">機材のランクに応じて、確認の項目が変わります。</p>
+          <p class="c-steps__time">機材ランクにより異なる</p>
+        </li>
+        <li class="c-steps__item">
+          <p class="c-steps__no">03</p>
+          <p class="c-steps__title">予約・お支払い</p>
+          <p class="c-steps__desc">期間と補償を選ぶと、料金がその場で決まります。</p>
+          <p class="c-steps__time">最短即日</p>
+        </li>
+        <li class="c-steps__item">
+          <p class="c-steps__no">04</p>
+          <p class="c-steps__title">受取・返却</p>
+          <p class="c-steps__desc">発送前に全数点検。返却は宅配・コンビニ・営業所から選べます。</p>
+          <p class="c-steps__time">返却期限までに発送</p>
+        </li>
+      </ol>
+    </div>
+
+    <p class="p-lp-flow__more"><a class="c-btn c-btn--ghost" href="guide.html">ご利用の流れを詳しく見る</a></p>
+
+    <aside class="c-memo" data-memo data-ref="N-18" data-type="native ops" data-plan="growth" data-confidence="一部要確認">
+      <h4>登録の途中で離れた方へ</h4>
+      <p>会員登録や決済の途中で離脱した方には、Shopify標準のカゴ落ちメールで自動的にお知らせできます。送信タイミングは調整可能です。より本格的な配信は要件定義で検討します。</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec" id="voices" aria-label="利用者の声">
+  <div class="l-container">
+    <header class="c-sec__head u-reveal" style="--d:0s">
+      <p class="c-sec__label"><span class="u-mono">No.06 — VOICES</span></p>
+      <h2 class="c-sec__title">利用者の声（サンプル）</h2>
+      <p class="c-sec__lead">実際のレビューではなく、想定される感想のサンプルです。</p>
+    </header>
+
+    <div class="p-lp-voices__grid u-reveal" style="--d:.08s">
+      <div class="p-lp-voices__feature">
+        <p class="p-lp-voices__featureMark u-wide" aria-hidden="true">“</p>
+        <p class="p-lp-voices__featureQuote">写真だけでは分からなかったシャッター音や質感を確かめてから、安心して同じ型を購入しました。</p>
+        <div class="p-lp-voices__head">
+          <figure class="c-frame c-frame--11 p-lp-voices__photo" data-frame>
+            <img src="assets/img/voice-2.webp" width="1200" height="1200" alt="30代女性のお客様（サンプル）" loading="lazy">
+            <span class="c-frame__corner c-frame__corner--tl" aria-hidden="true"></span>
+            <span class="c-frame__corner c-frame__corner--tr" aria-hidden="true"></span>
+            <span class="c-frame__corner c-frame__corner--bl" aria-hidden="true"></span>
+            <span class="c-frame__corner c-frame__corner--br" aria-hidden="true"></span>
+            <span class="c-frame__cross" aria-hidden="true"></span>
+            <span class="c-frame__key" aria-hidden="true"><span class="c-frame__key-text">VOICE-2</span><span class="c-frame__key-sub">NO IMAGE</span></span>
+          </figure>
+          <div>
+            <p class="p-lp-voices__name">30代・女性</p>
+            <p class="p-lp-voices__tag u-mono">サンプル</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-lp-voices__side">
+        <div class="p-lp-voices__sideItem">
+          <figure class="c-frame c-frame--11 p-lp-voices__photo" data-frame>
+            <img src="assets/img/voice-1.webp" width="1200" height="1200" alt="50代男性のお客様（サンプル）" loading="lazy">
+            <span class="c-frame__corner c-frame__corner--tl" aria-hidden="true"></span>
+            <span class="c-frame__corner c-frame__corner--tr" aria-hidden="true"></span>
+            <span class="c-frame__corner c-frame__corner--bl" aria-hidden="true"></span>
+            <span class="c-frame__corner c-frame__corner--br" aria-hidden="true"></span>
+            <span class="c-frame__cross" aria-hidden="true"></span>
+            <span class="c-frame__key" aria-hidden="true"><span class="c-frame__key-text">VOICE-1</span><span class="c-frame__key-sub">NO IMAGE</span></span>
+          </figure>
+          <div class="p-lp-voices__sideBody">
+            <p class="p-lp-voices__name">50代・男性<span class="p-lp-voices__tag u-mono">サンプル</span></p>
+            <p class="p-lp-voices__sideQuote">値段だけで諦めかけていましたが、3日間手元に置いて、この重さなら普段も持ち出せると分かりました。</p>
+          </div>
+        </div>
+        <div class="p-lp-voices__sideItem">
+          <figure class="c-frame c-frame--11 p-lp-voices__photo" data-frame>
+            <img src="assets/img/voice-3.webp" width="1200" height="1200" alt="40代男性のお客様（サンプル）" loading="lazy">
+            <span class="c-frame__corner c-frame__corner--tl" aria-hidden="true"></span>
+            <span class="c-frame__corner c-frame__corner--tr" aria-hidden="true"></span>
+            <span class="c-frame__corner c-frame__corner--bl" aria-hidden="true"></span>
+            <span class="c-frame__corner c-frame__corner--br" aria-hidden="true"></span>
+            <span class="c-frame__cross" aria-hidden="true"></span>
+            <span class="c-frame__key" aria-hidden="true"><span class="c-frame__key-text">VOICE-3</span><span class="c-frame__key-sub">NO IMAGE</span></span>
+          </figure>
+          <div class="p-lp-voices__sideBody">
+            <p class="p-lp-voices__name">40代・男性<span class="p-lp-voices__tag u-mono">サンプル</span></p>
+            <p class="p-lp-voices__sideQuote">子どもの運動会用に借りて、望遠の取り回しを試せたので、買ってから後悔せずに済みました。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec c-sec--paper2" id="faq" aria-label="よくある質問">
+  <div class="l-container">
+    <header class="c-sec__head u-reveal" style="--d:0s">
+      <p class="c-sec__label"><span class="u-mono">No.07 — FAQ</span></p>
+      <h2 class="c-sec__title">よくある質問</h2>
+    </header>
+
+    <div class="c-faq u-reveal" style="--d:.08s">
+      <details class="c-faq__item">
+        <summary><span class="c-faq__q u-mono">Q1</span><span>本当に買わなくてもいいのですか。</span></summary>
+        <p class="c-faq__a">はい。気に入らなければ、返却期限までにお戻しいただくだけです。購入を前提にせず、確かめるための体験としてご利用いただけます。</p>
+      </details>
+      <details class="c-faq__item">
+        <summary><span class="c-faq__q u-mono">Q2</span><span>壊してしまったらどうなりますか。</span></summary>
+        <p class="c-faq__a">お申し込み時に選んだ補償に応じて、自己負担する金額の上限があらかじめ決まります。盗難・紛失・未返却は補償の対象外です。</p>
+      </details>
+      <details class="c-faq__item">
+        <summary><span class="c-faq__q u-mono">Q3</span><span>審査に落ちることはありますか。</span></summary>
+        <p class="c-faq__a">本人確認の内容や機材のランクによっては、ご希望に沿えない場合があります。参考購入価格が高い機材ほど、確認の項目が増えます。</p>
+      </details>
+      <details class="c-faq__item">
+        <summary><span class="c-faq__q u-mono">Q4</span><span>申し込んでから何日くらいで届きますか。</span></summary>
+        <p class="c-faq__a">発送前に全数点検を行うため、お申し込みから発送まで少しお時間をいただきます。詳しくはご利用の流れのページでご案内しています。</p>
+      </details>
+      <details class="c-faq__item">
+        <summary><span class="c-faq__q u-mono">Q5</span><span>先に本人確認だけ済ませておく意味はありますか。</span></summary>
+        <p class="c-faq__a">借りたい機材が決まったときに、審査を待つ時間を短くできます。会員登録・本人確認はいずれも無料です。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="c-sec c-sec--ink" id="finalcta" aria-label="最終CTA">
+  <div class="l-container">
+    <div class="p-lp-final u-reveal" style="--d:0s">
+      <p class="c-sec__label"><span class="u-mono">No.08 — GET STARTED</span></p>
+      <h2 class="c-sec__title">まずは、本人確認だけ。</h2>
+      <p class="c-sec__lead">借りる機材が決まっていなくても構いません。先に会員登録と本人確認を済ませておけば、気になる一台が決まったときすぐに申し込めます。</p>
+
+      <div class="p-lp-final__cta">
+        <button class="c-btn c-btn--amber" type="button" data-demo="このサイトはサンプルです。会員登録は行われません。" data-cv="start_kyc">先に本人確認だけ済ませる（無料・約3分）</button>
+        <a class="c-btn c-btn--ghost" href="collection.html" data-cv="view_collection">機材一覧を見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     モバイル下部固定CTA（ヒーローのCTAが画面内にある間は隠す。dockには重ねない）
+     ============================================================ -->
+<div class="p-lp-stickyCta" data-lp-sticky>
+  <div class="l-container p-lp-stickyCta__inner">
+    <p class="p-lp-stickyCta__copy">先に本人確認だけ、済ませておきませんか。</p>
+    <div class="p-lp-stickyCta__btns">
+      <button class="c-btn c-btn--amber c-btn--sm" type="button" data-demo="このサイトはサンプルです。会員登録は行われません。" data-cv="start_kyc">本人確認へ</button>
+      <a class="c-btn c-btn--ghost c-btn--sm" href="collection.html?use=trial" data-cv="view_collection">機材を見る</a>
+    </div>
+  </div>
+</div>
+</main>
 
 <footer class="c-footer">
   <div class="l-container c-footer__inner">
@@ -128,8 +522,8 @@
 
 <div class="c-toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="assets/js/data.js?v=09202257"></script>
-<script src="assets/js/site.js?v=09202257"></script>
-
+<script src="assets/js/data.js?v=09211036"></script>
+<script src="assets/js/site.js?v=09211036"></script>
+<script src="assets/js/lp.js?v=09211036"></script>
 </body>
 </html>
