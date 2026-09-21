@@ -86,7 +86,7 @@
 }
 
 /* ---- 各ブロック共通 ---- */
-.p-mypage-block{padding-block:var(--sp-7) 0;border-top:1px solid var(--c-line-strong);}
+.p-mypage-block{padding-block:var(--sp-7) 0;border-top:1px solid var(--c-line-strong);scroll-margin-top:calc(var(--header-h) + 24px);}
 .p-mypage-block:first-child{padding-top:0;border-top:0;}
 .p-mypage-block + .p-mypage-block{margin-top:var(--sp-7);}
 .p-mypage-block__head{margin-bottom:22px;}

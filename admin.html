@@ -16,8 +16,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=DM+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="assets/css/base.css?v=09211036">
-<link rel="stylesheet" href="assets/css/admin.css?v=09211036">
+<link rel="stylesheet" href="assets/css/base.css?v=09211104">
+<link rel="stylesheet" href="assets/css/admin.css?v=09211104">
 <noscript><style>.u-reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -79,6 +79,11 @@
         <p class="p-admin-head__eyebrow u-mono">No.07 — OPERATION CONSOLE</p>
         <h1 class="p-admin-head__h1 u-mincho">運営管理</h1>
         <p class="p-admin-head__lead">審査・与信・住所照合の結果をもとに、発送してよいかを判断する画面です。低リスクの注文は、確認して承認するだけで完了します。</p>
+        <ul class="p-admin-head__points">
+          <li>低リスクの注文は、確認して承認を押すだけ。</li>
+          <li>止めるべき注文は、自動で保留されます。</li>
+          <li>最終的な発送の判断は、いつも人が行います。</li>
+        </ul>
       </div>
       <div class="p-admin-legend" aria-label="実装種別の凡例">
         <span class="p-admin-legend__label u-mono">LEGEND</span>
@@ -187,9 +192,9 @@
           </header>
 
           <div class="p-admin-orderChips" id="orderChips">
-            <a class="c-chip p-admin-chip" href="#order-T-1042" data-order-chip="#T-1042"><b>#T-1042</b><small>三浦 健一・低リスク</small></a>
-            <a class="c-chip p-admin-chip" href="#order-T-1043" data-order-chip="#T-1043"><b>#T-1043</b><small>高木 翔・中リスク</small></a>
-            <a class="c-chip p-admin-chip" href="#order-T-1044" data-order-chip="#T-1044"><b>#T-1044</b><small>新規会員・高リスク</small></a>
+            <a class="c-chip p-admin-chip" href="#order-T-1042" data-order-chip="#T-1042" data-risk="low"><b>#T-1042</b><small>三浦 健一・低リスク</small></a>
+            <a class="c-chip p-admin-chip" href="#order-T-1043" data-order-chip="#T-1043" data-risk="mid"><b>#T-1043</b><small>高木 翔・中リスク</small></a>
+            <a class="c-chip p-admin-chip" href="#order-T-1044" data-order-chip="#T-1044" data-risk="high"><b>#T-1044</b><small>新規会員・高リスク</small></a>
           </div>
 
           <div class="p-admin-orderHead u-reveal" style="--d:.04s">
@@ -198,7 +203,7 @@
               <p class="p-admin-orderHead__item" id="orderItem">—</p>
               <p class="p-admin-orderHead__member u-mono" id="orderMember">—</p>
             </div>
-            <span class="c-badge" id="orderRiskBadge">RISK</span>
+            <span class="c-badge p-admin-orderHead__riskBadge" id="orderRiskBadge">RISK</span>
           </div>
 
           <div class="p-admin-reasonBlock">
@@ -207,9 +212,14 @@
           </div>
 
           <div class="p-admin-noteWrap" id="orderCancelNotice" hidden>
-            <div class="c-notice c-notice--warn">
-              <span class="c-notice__mark u-mono">NOTE</span>
-              <p>自動で保留された注文です。カード名義と会員名の不一致、短時間の決済失敗が確認されているため、キャンセルを推奨します。</p>
+            <div class="p-admin-cancelNotice">
+              <p class="p-admin-cancelNotice__mark u-mono">自動保留</p>
+              <p class="p-admin-cancelNotice__title">キャンセルを推奨します</p>
+              <ul class="p-admin-cancelNotice__reasons">
+                <li>短時間に複数回の決済失敗</li>
+                <li>カード名義と会員名の不一致</li>
+                <li>登録から5分で高額注文</li>
+              </ul>
             </div>
           </div>
 
@@ -454,8 +464,8 @@
 
 <div class="c-toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="assets/js/data.js?v=09211036"></script>
-<script src="assets/js/site.js?v=09211036"></script>
-<script src="assets/js/admin.js?v=09211036"></script>
+<script src="assets/js/data.js?v=09211104"></script>
+<script src="assets/js/site.js?v=09211104"></script>
+<script src="assets/js/admin.js?v=09211104"></script>
 </body>
 </html>

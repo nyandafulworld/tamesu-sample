@@ -4,6 +4,11 @@
    ================================================================= */
 
 /* ---- 全体 ---- */
+/* base.css の .l-main が z-index:1、.c-footer も同じ z-index:1 かつDOM順が後のため、
+   何もしないと footer がスマホ下部固定の料金バー（#page-product 内、position:fixed）を覆い隠してしまう。
+   header(40)・dock(60) は超えない範囲で #page-product だけ footer より前面に出す。 */
+#page-product{position:relative;z-index:2;}
+
 .p-product-crumb{
   display:block;font-size:11px;color:var(--c-ink-3);margin-bottom:var(--sp-6);
 }

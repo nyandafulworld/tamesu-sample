@@ -29,6 +29,8 @@
   --f-mono:"DM Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
   --f-mincho:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
   --f-gothic:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  /* 価格・金額の数字：標準幅の読みやすいグロテスク（幅広の刻印書体は見出しの欧文・機種名・工程番号だけに使う） */
+  --f-num:"Archivo","Helvetica Neue",Arial,sans-serif;
 
   /* 余白スケール */
   --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px;
@@ -99,6 +101,8 @@ body::before{
   background-size:140px 140px;
 }
 .l-main,.c-header,.c-footer,.c-dock,.c-samplebar{position:relative;z-index:1;}
+/* 本文内の下部固定要素（料金バーや固定CTA）がフッターの背後に隠れないよう、本文をフッターより手前に置く */
+.l-main{z-index:2;}
 
 /* ---------- 3. タイポグラフィ ---------- */
 h1,h2,h3{
@@ -292,10 +296,11 @@ em{font-style:normal;color:var(--c-amber-deep);}
   font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;
   color:var(--c-ink-3);text-transform:uppercase;margin-right:.3em;
 }
-.c-price__yen{font-family:var(--f-wide);font-stretch:125%;font-size:.62em;margin-right:.1em;color:var(--c-ink-3);}
+.c-price__yen{font-family:var(--f-num);font-stretch:100%;font-variation-settings:"wdth" 100;font-size:.62em;margin-right:.1em;color:var(--c-ink-3);}
 .c-price__amount{
-  font-family:var(--f-wide);font-stretch:125%;font-variation-settings:"wdth" 125;
-  font-weight:700;font-size:clamp(22px,2.6vw,30px);color:var(--c-ink);letter-spacing:.01em;
+  font-family:var(--f-num);font-stretch:100%;font-variation-settings:"wdth" 100;
+  font-variant-numeric:tabular-nums lining-nums;
+  font-weight:600;font-size:clamp(22px,2.6vw,30px);color:var(--c-ink);letter-spacing:0;
 }
 .c-price__unit{font-family:var(--f-mono);font-size:12px;color:var(--c-ink-3);margin-left:.15em;}
 .c-price--sm .c-price__amount{font-size:18px;}
@@ -318,7 +323,7 @@ em{font-style:normal;color:var(--c-amber-deep);}
   color:var(--c-ink-3);border-bottom:1px solid var(--c-line-strong);font-weight:500;
 }
 .c-table tbody tr:hover{background:rgba(22,20,15,.025);}
-.c-table td.u-num,.c-table th.u-num{font-family:var(--f-wide);font-stretch:125%;text-align:right;}
+.c-table td.u-num,.c-table th.u-num{font-family:var(--f-num);font-stretch:100%;font-variation-settings:"wdth" 100;font-variant-numeric:tabular-nums lining-nums;font-weight:500;text-align:right;}
 .c-table--zebra tbody tr:nth-child(even){background:var(--c-paper-2);}
 .c-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
 
@@ -593,8 +598,9 @@ em{font-style:normal;color:var(--c-amber-deep);}
 .c-card-product__price{display:flex;flex-direction:column;gap:2px;}
 .c-card-product__priceLabel{font-size:10.5px;color:var(--c-ink-3);}
 .c-card-product__priceNum{
-  font-family:var(--f-wide);font-stretch:125%;font-variation-settings:"wdth" 125;
-  font-weight:700;font-size:20px;color:var(--c-ink);
+  font-family:var(--f-num);font-stretch:100%;font-variation-settings:"wdth" 100;
+  font-variant-numeric:tabular-nums lining-nums;
+  font-weight:600;font-size:21px;color:var(--c-ink);letter-spacing:0;
 }
 .c-card-product__priceNum span{font-family:var(--f-mono);font-size:11px;color:var(--c-ink-3);font-weight:400;margin-left:2px;}
 .c-card-product__ref{font-size:10.5px;color:var(--c-ink-3);letter-spacing:.02em;margin-top:2px;}
@@ -910,10 +916,28 @@ html[data-chrome="lp"] .c-header__mobile{display:none!important;}
   .c-dock__div{align-self:center;height:24px;margin-inline:4px;}
   .c-dock__memoLabel{display:none;}
   .c-dock__memo{padding:7px 8px;gap:0;}
-  .c-dock__collapse{display:flex;position:absolute;top:-27px;right:10px;background:rgba(22,20,15,.96);border:1px solid rgba(215,128,31,.45);border-bottom:0;padding:4px 10px;}
+  .c-dock__collapse{display:flex;position:absolute;top:-27px;left:10px;right:auto;background:rgba(22,20,15,.96);border:1px solid rgba(215,128,31,.45);border-bottom:0;padding:4px 10px;}
   .c-dock__inner{flex-wrap:nowrap;padding:8px 10px;gap:8px;position:relative;}
   .c-samplebar__text{font-size:10.5px;line-height:1.5;}
   .c-samplebar__inner{padding-block:6px;}
+}
+
+/* ---------- 価格・金額の数字（全ページ共通の上書き） ----------
+   ページ固有CSSで幅広書体を指定している価格表示も、ここで標準幅に統一する。
+   .l-main を付けて詳細度を上げ、後から読み込まれるページCSSより優先させている。 */
+.l-main .p-product-calc__row .u-wide,
+.l-main .p-product-calc__ratio b,
+.l-main .p-product-priceBar__amount,
+.l-main .p-lp-price__rowNum,
+.l-main .p-lp-price__ratio b,
+.l-main .p-index-concept__ratio b,
+.l-main .u-price-num{
+  font-family:var(--f-num);
+  font-stretch:100%;
+  font-variation-settings:"wdth" 100;
+  font-variant-numeric:tabular-nums lining-nums;
+  font-weight:600;
+  letter-spacing:0;
 }
 
 /* ---------- 26. c-toast ---------- */

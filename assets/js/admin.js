@@ -86,6 +86,26 @@
 
   function kycTone(kyc){ return kyc === "済" ? "ok" : "wait"; }
 
+  /* 機材名と期間・補償を自然な位置で2行に分ける（"・"の最初の位置で分割） */
+  function splitItemText(item){
+    var i = (item || "").indexOf("・");
+    if(i < 0) return {name:item, rest:""};
+    return {name:item.slice(0,i), rest:item.slice(i+1)};
+  }
+  function appendItemLines(host, item){
+    var parts = splitItemText(item);
+    var nameEl = document.createElement("span");
+    nameEl.className = "p-admin-itemName";
+    nameEl.textContent = parts.name;
+    host.appendChild(nameEl);
+    if(parts.rest){
+      var restEl = document.createElement("span");
+      restEl.className = "p-admin-itemPeriod";
+      restEl.textContent = parts.rest;
+      host.appendChild(restEl);
+    }
+  }
+
   function matchTone(match){
     if(match === "一致") return "ok";
     if(match === "照合不可") return "wait";
@@ -245,11 +265,13 @@
       tr.appendChild(tdId);
 
       var tdMember = document.createElement("td");
+      tdMember.className = "p-admin-table__member";
       tdMember.textContent = o.member;
       tr.appendChild(tdMember);
 
       var tdItem = document.createElement("td");
-      tdItem.textContent = o.item;
+      tdItem.className = "p-admin-table__item";
+      appendItemLines(tdItem, o.item);
       tr.appendChild(tdItem);
 
       var tdRisk = document.createElement("td");
@@ -315,7 +337,7 @@
 
       var citem = document.createElement("p");
       citem.className = "p-admin-card__item";
-      citem.textContent = o.item;
+      appendItemLines(citem, o.item);
       card.appendChild(citem);
 
       var cmember = document.createElement("p");
@@ -393,7 +415,7 @@
 
     var riskBadge = document.getElementById("orderRiskBadge");
     if(riskBadge){
-      riskBadge.className = "c-badge c-badge--" + riskTone(o.risk);
+      riskBadge.className = "c-badge p-admin-orderHead__riskBadge c-badge--" + riskTone(o.risk);
       riskBadge.textContent = riskLabelLong(o.risk);
     }
 
@@ -452,7 +474,8 @@
     var cancel = document.getElementById("actCancel");
     if(!approve || !hold || !cancel) return;
 
-    var terminal = o.status.indexOf("キャンセル") >= 0;
+    /* "キャンセル推奨"（未対応の提案）と「キャンセル済み」（対応済みの終端状態）を混同しない */
+    var terminal = o.status.indexOf("キャンセル済み") >= 0;
     var alreadyApproved = o.status.indexOf("発送承認済み") >= 0 || o.status.indexOf("貸出中") >= 0 || o.status.indexOf("返却済み") >= 0;
 
     approve.disabled = terminal || alreadyApproved || o.kyc !== "済";

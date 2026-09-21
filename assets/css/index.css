@@ -97,12 +97,16 @@
 @media(max-width:899px){
   .p-index-company__media,.p-index-company__body{grid-column:1/-1;}
 }
-/* ファインダー枠の四隅は、明るい被写体の上でも見えるよう淡い縁取りを添える */
+/* ファインダー枠の四隅は、明るい被写体（左上は窓の逆光）の上でも見えるよう、
+   淡い縁取りに加えて墨色のハロー（暗い縁）も重ね、明暗どちらの背景でも視認できるようにする */
 .p-index-company__media .c-frame__corner{
-  filter:drop-shadow(0 0 1.5px var(--c-paper-3)) drop-shadow(0 0 1.5px var(--c-paper-3));
+  filter:
+    drop-shadow(0 0 1.5px var(--c-paper-3))
+    drop-shadow(0 0 1.5px var(--c-paper-3))
+    drop-shadow(0 0 2px rgba(22,20,15,.65));
 }
 .p-index-company__inset{
-  position:absolute;width:38%;right:-4%;bottom:-7%;
+  position:absolute;width:38%;right:-3%;bottom:-9%;
   border:7px solid var(--c-paper);box-shadow:var(--shadow-frame);
 }
 @media(max-width:899px){

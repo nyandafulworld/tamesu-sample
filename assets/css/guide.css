@@ -58,20 +58,36 @@
   .p-guide-map__name{font-size:11.5px;}
 }
 
-/* ---- timeline（各ステップ） ---- */
-.p-guide-steps__needs{margin-top:12px;font-size:13px;line-height:1.8;color:var(--c-ink-2);}
+/* ---- timeline（各ステップ）
+   雑誌の見開きのように、本文は左（可変幅）、所要時間・必要なもの・写真は
+   右の等幅レール（320px）にまとめる。900px未満は縦積みに戻る。 ---- */
+#page-guide .c-steps__item{scroll-margin-top:calc(var(--header-h) + 24px);}
+
+.p-guide-steps__body{display:flex;flex-direction:column;gap:18px;}
+.p-guide-steps__main{min-width:0;}
+.p-guide-steps__side{display:flex;flex-direction:column;gap:14px;}
+
+.p-guide-steps__needs{font-size:13px;line-height:1.8;color:var(--c-ink-2);}
 .p-guide-steps__needsLabel{
   display:inline-block;margin-right:10px;margin-bottom:2px;
   font-size:10px;letter-spacing:.06em;color:var(--c-ink-3);
   border:1px solid var(--c-line-strong);border-radius:var(--r-pill);padding:3px 10px;
 }
-.p-guide-steps__media{margin-top:20px;max-width:360px;}
-.p-guide-steps__gallery{display:flex;gap:14px;margin-top:16px;max-width:360px;}
+.p-guide-steps__media{max-width:340px;}
+.p-guide-steps__gallery{display:flex;gap:12px;max-width:340px;}
 .p-guide-steps__galleryItem{flex:1;min-width:0;}
 .p-guide-steps__galleryLabel{font-size:10px;letter-spacing:.06em;color:var(--c-ink-3);margin-bottom:8px;}
+
 @media(min-width:900px){
-  .p-guide-steps__item--media .p-guide-steps__media,
-  .p-guide-steps__item--media .p-guide-steps__gallery{max-width:400px;}
+  .p-guide-steps__body{
+    flex-direction:row;
+    align-items:flex-start;
+    gap:44px;
+  }
+  .p-guide-steps__main{flex:1 1 auto;padding-top:3px;}
+  .p-guide-steps__side{flex:0 0 300px;gap:16px;}
+  .p-guide-steps__media{max-width:none;}
+  .p-guide-steps__gallery{max-width:none;}
 }
 
 /* ---- docs（本人確認の書類） ---- */

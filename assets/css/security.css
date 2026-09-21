@@ -64,7 +64,8 @@
 .p-security-dial{margin-top:46px;}
 .p-security-dial__ruler{display:block;width:100%;height:40px;margin-bottom:0;}
 .p-security-dial__base{stroke:var(--c-amber);stroke-width:2;vector-effect:non-scaling-stroke;}
-.p-security-dial__tick{stroke:rgba(248,244,235,.3);stroke-width:1;vector-effect:non-scaling-stroke;}
+.p-security-dial__tick{stroke:rgba(248,244,235,.22);stroke-width:1;vector-effect:non-scaling-stroke;}
+.p-security-dial__tick--mid{stroke:rgba(248,244,235,.38);}
 .p-security-dial__tick--major{stroke:var(--c-amber);stroke-width:2;}
 
 .p-security-dial__row{display:grid;grid-template-columns:repeat(5,1fr);gap:0 18px;}
@@ -75,10 +76,28 @@
 }
 .p-security-dial__no{
   font-family:var(--f-wide);font-stretch:125%;font-variation-settings:"wdth" 125;
-  font-size:30px;font-weight:700;color:var(--c-amber);
+  font-size:32px;font-weight:700;line-height:1;color:var(--c-amber);
+  text-shadow:0 1px 0 rgba(0,0,0,.35),0 -1px 0 rgba(255,255,255,.08);
+  letter-spacing:.02em;
 }
-.p-security-dial__title{margin:10px 0 8px;font-size:14.5px;font-weight:700;color:var(--c-paper-3);}
-.p-security-dial__desc{font-size:12.3px;line-height:1.8;color:rgba(248,244,235,.72);max-width:36ch;margin-inline:auto;}
+.p-security-dial__title{
+  margin:12px 0 0;font-size:14.5px;font-weight:700;line-height:1.45;color:var(--c-paper-3);
+  min-height:2.9em;display:flex;align-items:flex-start;justify-content:center;
+}
+/* 目盛り〜数字〜見出しから、下の説明文へ視線をつなぐ一本の縦線 */
+.p-security-dial__link{display:block;position:relative;height:20px;margin:0 auto;}
+.p-security-dial__link::before{
+  content:"";position:absolute;top:0;left:50%;width:1px;height:13px;
+  background:rgba(248,244,235,.4);transform:translateX(-50%);
+}
+.p-security-dial__link::after{
+  content:"";position:absolute;top:13px;left:50%;width:5px;height:5px;border-radius:50%;
+  background:var(--c-amber);transform:translate(-50%,-50%);
+}
+.p-security-dial__desc{
+  font-size:13.5px;line-height:1.85;color:rgba(248,244,235,.82);
+  max-width:30ch;margin-inline:auto;
+}
 
 @media(max-width:899px){
   .p-security-dial__ruler{display:none;}
@@ -86,7 +105,9 @@
   .p-security-dial__item{text-align:left;padding:22px 0 22px 24px;border-bottom:1px solid rgba(248,244,235,.14);}
   .p-security-dial__item::before{display:none;}
   .p-security-dial__item:last-child{border-bottom:0;}
-  .p-security-dial__desc{margin-inline:0;max-width:52ch;}
+  .p-security-dial__title{min-height:0;justify-content:flex-start;}
+  .p-security-dial__link{display:none;}
+  .p-security-dial__desc{margin-inline:0;margin-top:8px;max-width:52ch;}
 }
 
 /* ---- A・B マトリクス ---- */
@@ -114,13 +135,87 @@
 .p-security-matrix__lvl.is-partial{background:rgba(248,244,235,.14);color:var(--c-paper-3);border-color:rgba(248,244,235,.4);}
 .p-security-matrix__lvl.is-none{background:transparent;color:rgba(248,244,235,.45);border-style:dashed;}
 
-/* ---- 手続きの順番（フロー） ---- */
-.p-security-flow{margin-top:54px;padding-top:26px;border-top:1px solid rgba(248,244,235,.22);}
-.p-security-flow__label{font-size:11px;letter-spacing:.16em;color:rgba(248,244,235,.5);margin-bottom:16px;}
-.p-security-flow__list{display:flex;flex-wrap:wrap;align-items:center;row-gap:10px;}
-.p-security-flow__list li{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.03em;color:var(--c-paper-3);white-space:nowrap;}
-.p-security-flow__list li:not(:last-child)::after{content:"→";margin:0 14px;color:var(--c-amber);}
-.p-security-flow__note{margin-top:18px;font-size:12.5px;color:rgba(248,244,235,.6);}
+/* スマホでは横スクロールさせず、1備え=1カードの縦積みに組み替える */
+@media(max-width:599px){
+  .p-security-matrix__wrap{overflow-x:visible;}
+  .p-security-matrix__table{min-width:0;}
+  .p-security-matrix__table thead{
+    position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+  }
+  .p-security-matrix__table tbody{display:flex;flex-direction:column;gap:12px;}
+  .p-security-matrix__table tr{
+    display:block;border:1px solid rgba(248,244,235,.22);padding:14px 16px 4px;
+  }
+  .p-security-matrix__table tbody th{
+    display:block;white-space:normal;border-bottom:1px solid rgba(248,244,235,.18);
+    padding:0 0 12px;margin-bottom:10px;font-size:14px;
+  }
+  .p-security-matrix__table td{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:10px 0;border-bottom:1px solid rgba(248,244,235,.12);
+  }
+  .p-security-matrix__table tr td:last-child{border-bottom:0;}
+  .p-security-matrix__table td::before{
+    content:attr(data-label);font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;color:rgba(248,244,235,.55);
+  }
+}
+
+/* ---- 手続きの順番（THE ORDER）：番号でたどれる一本の手続き線 ---- */
+.p-security-order{margin-top:54px;padding-top:26px;border-top:1px solid rgba(248,244,235,.22);}
+.p-security-order__label{font-size:11px;letter-spacing:.16em;color:rgba(248,244,235,.5);margin-bottom:12px;}
+.p-security-order__lead{font-size:13px;line-height:1.85;color:rgba(248,244,235,.68);max-width:58ch;margin-bottom:30px;}
+
+.p-security-order__list{
+  position:relative;
+  display:grid;grid-template-columns:repeat(7,1fr);
+  padding-top:20px;
+}
+.p-security-order__list::before{
+  content:"";position:absolute;top:29px;left:0;right:0;height:1px;background:rgba(248,244,235,.24);
+}
+.p-security-order__step{
+  position:relative;padding:0 4px;
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;
+}
+.p-security-order__no{
+  position:relative;z-index:1;
+  display:flex;align-items:center;justify-content:center;
+  width:20px;height:20px;margin:0 auto;flex-shrink:0;
+  font-family:var(--f-wide);font-stretch:125%;font-variation-settings:"wdth" 125;
+  font-size:10.5px;font-weight:700;line-height:1;
+  border-radius:50%;background:var(--c-ink);color:rgba(248,244,235,.6);
+  border:1.5px solid rgba(248,244,235,.4);
+}
+.p-security-order__step[data-agent="human"] .p-security-order__no{background:var(--c-amber);border-color:var(--c-amber);color:var(--c-ink);}
+.p-security-order__step[data-agent="auto"] .p-security-order__no{background:var(--c-ink);border-color:rgba(248,244,235,.6);color:rgba(248,244,235,.9);}
+.p-security-order__step[data-agent="customer"] .p-security-order__no{border-style:dashed;}
+
+.p-security-order__name{font-size:12px;font-weight:600;line-height:1.45;color:var(--c-paper-3);}
+.p-security-order__agent{font-size:9.5px;letter-spacing:.05em;color:rgba(248,244,235,.48);}
+.p-security-order__step[data-agent="human"] .p-security-order__agent{color:var(--c-amber-soft);}
+.p-security-order__step[data-agent="auto"] .p-security-order__agent{color:rgba(248,244,235,.7);}
+
+.p-security-order__legend{display:flex;gap:24px;flex-wrap:wrap;margin-top:28px;padding-top:18px;border-top:1px solid rgba(248,244,235,.14);}
+.p-security-order__legendItem{position:relative;padding-left:22px;font-size:11.5px;color:rgba(248,244,235,.62);}
+.p-security-order__legendItem::before{
+  content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:12px;height:12px;border-radius:50%;border:1.5px solid rgba(248,244,235,.6);
+}
+.p-security-order__legendItem[data-agent="human"]::before{background:var(--c-amber);border-color:var(--c-amber);}
+.p-security-order__legendItem[data-agent="auto"]::before{background:var(--c-ink);}
+
+.p-security-order__note{margin-top:18px;font-size:12.5px;color:rgba(248,244,235,.6);}
+
+@media(max-width:899px){
+  .p-security-order__list{display:flex;flex-direction:column;padding-top:0;gap:0;}
+  .p-security-order__list::before{top:0;bottom:0;left:9px;right:auto;width:1px;height:auto;background:rgba(248,244,235,.24);}
+  .p-security-order__step{
+    flex-direction:row;text-align:left;align-items:center;justify-content:flex-start;
+    padding:13px 0;gap:14px;
+  }
+  .p-security-order__name{flex:1;}
+  .p-security-order__agent{flex-shrink:0;}
+}
 
 /* ---- 自動分析の限界 ---- */
 .p-security-limits__head{grid-column:1/5;}

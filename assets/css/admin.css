@@ -29,6 +29,14 @@
 .p-admin-head__eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--c-ink-3);margin-bottom:10px;}
 .p-admin-head__h1{margin-bottom:12px;}
 .p-admin-head__lead{font-size:14.5px;line-height:1.85;color:var(--c-ink-2);max-width:52ch;}
+.p-admin-head__points{margin-top:14px;display:flex;flex-direction:column;gap:7px;}
+.p-admin-head__points li{
+  font-size:13.5px;line-height:1.6;color:var(--c-ink);font-weight:500;
+  padding-left:17px;position:relative;max-width:48ch;
+}
+.p-admin-head__points li::before{
+  content:"";position:absolute;left:0;top:8px;width:9px;height:1.5px;background:var(--c-amber-deep);
+}
 .p-admin-legend{flex-shrink:0;text-align:right;}
 .p-admin-legend__label{display:block;font-size:10px;letter-spacing:.16em;color:var(--c-ink-3);margin-bottom:8px;}
 .p-admin-legend__list{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end;max-width:260px;}
@@ -139,6 +147,15 @@
 .p-admin-table tr.is-muted{opacity:.62;}
 .p-admin-table__matchNote{display:block;margin-top:4px;font-size:11px;color:var(--c-ink-3);max-width:22ch;}
 .p-admin-table__dash{color:var(--c-ink-3);}
+/* 会員名は短い和文なので折り返させない（狭い列で1文字だけ次行に落ちるのを防ぐ） */
+.p-admin-table__member{white-space:nowrap;}
+/* 機材名と期間・補償は"・"の位置で必ず2行に分ける（意味の切れ目でない位置での折り返しを防ぐ） */
+.p-admin-table__item{min-width:180px;}
+.p-admin-itemName,.p-admin-itemPeriod{display:block;white-space:nowrap;}
+.p-admin-itemName{color:var(--c-ink);}
+.p-admin-itemPeriod{margin-top:3px;font-size:11.5px;color:var(--c-ink-3);}
+.p-admin-card__itemName{display:block;}
+.p-admin-card__itemPeriod{display:block;margin-top:2px;font-size:12px;color:var(--c-ink-3);}
 
 .p-admin-cards{display:none;}
 
@@ -173,6 +190,8 @@
 .p-admin-status{
   display:inline-block;font-size:12px;color:var(--c-ink-2);
   padding-left:9px;border-left:3px solid var(--c-ink-3);line-height:1.6;
+  /* 「キャンセル」のような複合語の途中で改行しない（不自然な折り返し防止） */
+  word-break:keep-all;overflow-wrap:anywhere;
 }
 .p-admin-status--wait{border-left-color:var(--c-amber-deep);color:var(--c-ink);}
 .p-admin-status--hold{border-left-color:var(--c-hold);color:var(--c-hold);}
@@ -180,11 +199,17 @@
 .p-admin-status--ok{border-left-color:var(--c-ok);color:var(--c-ok);}
 .p-admin-status--done{border-left-color:var(--c-line-strong);color:var(--c-ink-3);}
 
-/* ---- order chips ---- */
+/* ---- order chips（切替時に低・中・高が色でも分かるよう左に帯を付ける） ---- */
 .p-admin-orderChips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:var(--sp-5);}
-.p-admin-orderChips .p-admin-chip{align-items:flex-start;flex-direction:column;gap:2px;}
+.p-admin-orderChips .p-admin-chip{align-items:flex-start;flex-direction:column;gap:2px;border-left-width:4px;border-left-style:solid;}
+.p-admin-orderChips .p-admin-chip[data-risk="low"]{border-left-color:var(--c-ok);}
+.p-admin-orderChips .p-admin-chip[data-risk="mid"]{border-left-color:var(--c-hold);}
+.p-admin-orderChips .p-admin-chip[data-risk="high"]{border-left-color:var(--c-ng);}
+.p-admin-orderChips .p-admin-chip[aria-pressed="true"][data-risk="low"]{border-left-color:var(--c-ok);}
+.p-admin-orderChips .p-admin-chip[aria-pressed="true"][data-risk="mid"]{border-left-color:var(--c-hold);}
+.p-admin-orderChips .p-admin-chip[aria-pressed="true"][data-risk="high"]{border-left-color:var(--c-ng);}
 
-/* ---- order head ---- */
+/* ---- order head（リスクバッジを大きく、一目で分かるように） ---- */
 .p-admin-orderHead{
   display:flex;justify-content:space-between;align-items:flex-start;gap:var(--sp-4);
   padding-bottom:var(--sp-4);margin-bottom:var(--sp-4);
@@ -193,11 +218,35 @@
 .p-admin-orderHead__id{font-size:24px;font-weight:800;letter-spacing:.01em;}
 .p-admin-orderHead__item{margin-top:6px;font-size:15px;color:var(--c-ink-2);}
 .p-admin-orderHead__member{margin-top:6px;font-size:11.5px;color:var(--c-ink-3);}
+.p-admin-orderHead__riskBadge{
+  font-size:14.5px;font-weight:700;padding:.6em 1.05em;letter-spacing:.14em;
+  border-radius:var(--r-1);flex-shrink:0;
+}
 
 .p-admin-reasonBlock{margin-bottom:var(--sp-5);}
 .p-admin-orderReason{margin-top:8px;font-size:14px;line-height:1.85;color:var(--c-ink-2);max-width:64ch;}
 
 .p-admin-noteWrap{margin-bottom:var(--sp-5);}
+
+/* ---- 自動保留・キャンセル推奨（理由を大きく読ませる） ---- */
+.p-admin-cancelNotice{
+  padding:20px 22px 22px;
+  background:var(--c-paper-3);
+  border:1px solid var(--c-ng);
+  border-left:5px solid var(--c-ng);
+}
+.p-admin-cancelNotice__mark{font-size:11px;letter-spacing:.14em;color:var(--c-ng);}
+.p-admin-cancelNotice__title{
+  margin-top:6px;font-family:var(--f-mincho);font-weight:700;font-size:clamp(19px,2.3vw,23px);color:var(--c-ink);
+}
+.p-admin-cancelNotice__reasons{margin-top:14px;display:flex;flex-direction:column;gap:9px;}
+.p-admin-cancelNotice__reasons li{
+  font-size:15px;line-height:1.6;color:var(--c-ink-2);
+  padding-left:16px;position:relative;
+}
+.p-admin-cancelNotice__reasons li::before{
+  content:"";position:absolute;left:0;top:9px;width:7px;height:1.5px;background:var(--c-ng);
+}
 
 .p-admin-block__label{
   display:flex;align-items:center;flex-wrap:wrap;
@@ -222,48 +271,52 @@
 }
 .p-admin-matchResult{margin-top:12px;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--c-ink-2);}
 
-/* ---- timeline（等幅） ---- */
+/* ---- timeline（等幅／遠目にも進捗が分かる帯） ---- */
+/* 済＝墨のベタ帯、保留・要注意＝琥珀、未・照合不可＝薄い罫線のみ、停止＝紅。現在地は最大の面積と太い上帯で強調する。 */
 .p-admin-timelineWrap{margin-bottom:var(--sp-6);}
 .p-admin-timeline{
-  display:flex;gap:0;margin-top:14px;
-  border-top:1px solid var(--c-line-strong);
+  display:flex;gap:2px;margin-top:14px;
   overflow-x:auto;-webkit-overflow-scrolling:touch;
 }
 .p-admin-timeline__item{
-  flex:1 0 120px;padding:16px 12px 0;position:relative;
-  border-right:1px solid var(--c-line);
+  flex:1 0 128px;padding:16px 14px 15px;position:relative;
+  border-top:5px solid var(--c-line-strong);
+  background:var(--c-paper-3);
+  transition:transform var(--t-fast) var(--ease);
 }
-.p-admin-timeline__item:last-child{border-right:0;}
 .p-admin-timeline__marker{
-  display:block;
-  width:9px;height:9px;background:var(--c-ink-3);
-  margin-top:-5.5px;margin-bottom:10px;
-  border:2px solid var(--c-paper);
+  display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;
+  background:transparent;border:2px solid var(--c-line-strong);
+  margin-bottom:12px;
 }
-.p-admin-timeline__item.is-done .p-admin-timeline__marker{background:var(--c-ink);}
-.p-admin-timeline__item.is-current .p-admin-timeline__marker{background:var(--c-amber-deep);box-shadow:0 0 0 3px var(--c-amber-soft);}
-.p-admin-timeline__item.is-hold .p-admin-timeline__marker{background:var(--c-hold);}
-.p-admin-timeline__item.is-flag .p-admin-timeline__marker{background:var(--c-amber-deep);}
-.p-admin-timeline__item.is-skip .p-admin-timeline__marker{background:transparent;border-color:var(--c-line-strong);}
-.p-admin-timeline__item.is-fail .p-admin-timeline__marker{background:var(--c-ng);}
-.p-admin-timeline__name{font-family:var(--f-mono);font-size:11.5px;color:var(--c-ink);margin-bottom:4px;}
-.p-admin-timeline__state{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--c-ink-3);}
-.p-admin-timeline__item.is-current .p-admin-timeline__state{color:var(--c-amber-deep);}
+.p-admin-timeline__item.is-done{border-top-color:var(--c-ink);background:rgba(22,20,15,.05);}
+.p-admin-timeline__item.is-done .p-admin-timeline__marker{background:var(--c-ink);border-color:var(--c-ink);}
+.p-admin-timeline__item.is-current{border-top-width:7px;border-top-color:var(--c-amber-deep);background:var(--c-amber-soft);transform:translateY(-3px);box-shadow:var(--shadow-pop);}
+.p-admin-timeline__item.is-current .p-admin-timeline__marker{width:24px;height:24px;background:var(--c-amber-deep);border-color:var(--c-amber-deep);box-shadow:0 0 0 4px rgba(215,128,31,.28);}
+.p-admin-timeline__item.is-hold{border-top-color:var(--c-hold);background:rgba(183,121,31,.1);}
+.p-admin-timeline__item.is-hold .p-admin-timeline__marker{background:var(--c-hold);border-color:var(--c-hold);}
+.p-admin-timeline__item.is-flag{border-top-color:var(--c-amber-deep);background:rgba(215,128,31,.1);}
+.p-admin-timeline__item.is-flag .p-admin-timeline__marker{background:var(--c-amber-deep);border-color:var(--c-amber-deep);}
+.p-admin-timeline__item.is-skip{border-top-color:var(--c-line-strong);background:transparent;}
+.p-admin-timeline__item.is-skip .p-admin-timeline__marker{background:transparent;border-color:var(--c-line-strong);border-style:dashed;}
+.p-admin-timeline__item.is-fail{border-top-color:var(--c-ng);background:rgba(156,47,34,.07);}
+.p-admin-timeline__item.is-fail .p-admin-timeline__marker{background:var(--c-paper-3);border-color:var(--c-ng);}
+.p-admin-timeline__name{font-family:var(--f-mono);font-size:12.5px;font-weight:500;color:var(--c-ink);margin-bottom:5px;}
+.p-admin-timeline__state{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--c-ink-3);}
+.p-admin-timeline__item.is-current .p-admin-timeline__name{font-weight:700;}
+.p-admin-timeline__item.is-current .p-admin-timeline__state{color:var(--c-amber-deep);font-weight:700;}
 .p-admin-timeline__item.is-hold .p-admin-timeline__state{color:var(--c-hold);}
 .p-admin-timeline__item.is-flag .p-admin-timeline__state{color:var(--c-amber-deep);}
-.p-admin-timeline__item.is-fail .p-admin-timeline__state{color:var(--c-ng);}
+.p-admin-timeline__item.is-fail .p-admin-timeline__state{color:var(--c-ng);font-weight:500;}
 
 @media(max-width:599px){
   .p-admin-timeline{
-    display:grid;grid-template-columns:repeat(3,1fr);
+    display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
     overflow-x:visible;
   }
-  .p-admin-timeline__item{
-    flex-basis:auto;padding-bottom:14px;
-    border-bottom:1px solid var(--c-line);
-  }
-  .p-admin-timeline__item:nth-child(3n){border-right:0;}
-  .p-admin-timeline__item:nth-child(n+4){border-bottom:0;}
+  .p-admin-timeline__item{flex-basis:auto;padding:13px 10px 12px;}
+  .p-admin-timeline__item.is-current{transform:none;}
 }
 
 /* ---- actions ---- */

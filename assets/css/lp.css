@@ -1,7 +1,12 @@
 /* =================================================================
    TAMESU（仮称） — lp（広告用ランディングページ）固有CSS
    セレクタは #page-lp または .p-lp-* のみ。
+   ※base.css の .l-main と .c-footer が同じ z-index:1（DOM順はfooterが後）のため、
+     何もしないとスマホ下部固定CTA（position:fixed, #page-lp内）がfooterの背後に隠れる。
+     header(40)・dock(60)を超えない範囲で #page-lp だけ前面に出す。
    ================================================================= */
+
+#page-lp{position:relative;z-index:2;}
 
 /* ---- hero ---- */
 .p-lp-hero{align-items:center;}
@@ -18,6 +23,8 @@
 }
 .p-lp-hero__eyebrow::before{content:"";width:26px;height:1px;background:var(--c-amber-deep);}
 .p-lp-hero__title{margin:22px 0 16px;font-size:clamp(32px,4.6vw,54px);}
+/* 「か？」だけが1文字で改行されて泣き別れしないよう、末尾の2文字は分割しない */
+.p-lp-hero__noBreak{white-space:nowrap;}
 .p-lp-hero__sub{
   font-family:var(--f-mincho);font-size:clamp(16px,1.9vw,20px);color:var(--c-amber-deep);
   margin-bottom:20px;letter-spacing:.03em;
@@ -104,12 +111,15 @@
   padding:6px 0;border-top:1px dashed var(--c-line-strong);border-bottom:1px dashed var(--c-line-strong);
   margin:4px 0;
 }
-.p-lp-price__ratio{
-  margin-top:18px;font-size:13.5px;color:var(--c-ink-2);
+.p-lp-price__perday{
+  margin-top:20px;padding-top:16px;border-top:1px dashed var(--c-line-strong);
+  display:flex;align-items:baseline;gap:.3em;font-size:12.5px;color:var(--c-ink-2);
 }
-.p-lp-price__ratio b{
-  font-family:var(--f-wide);font-stretch:125%;font-variation-settings:"wdth" 125;
-  font-size:22px;color:var(--c-amber-deep);font-weight:700;
+.p-lp-price__perday b{
+  font-size:24px;color:var(--c-amber-deep);
+}
+.p-lp-price__ratio{
+  margin-top:8px;font-size:11.5px;color:var(--c-ink-3);
 }
 .p-lp-price__col .c-btn{margin-top:22px;}
 
