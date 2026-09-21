@@ -219,3 +219,8 @@
 /* ---- LPはタイポを一段大きく（このページに限りスコープして上書き） ---- */
 #page-lp .c-sec__title{font-size:clamp(27px,3.6vw,40px);}
 #page-lp .c-sec__lead{font-size:17px;}
+
+/* スマホ〜タブレット：下部固定CTAの分だけフッター下に余白を足す */
+@media(max-width:899px){
+  #page-lp ~ .c-footer{padding-bottom:84px;}
+}

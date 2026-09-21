@@ -41,13 +41,28 @@
   try{
     var sticky = document.querySelector("[data-lp-sticky]");
     var heroCta = document.querySelector(".p-lp-hero__cta");
-    if(sticky && heroCta && "IntersectionObserver" in window){
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(entry){
-          sticky.classList.toggle("is-visible", !entry.isIntersecting);
-        });
-      }, {threshold: 0, rootMargin: "-72px 0px 0px 0px"});
-      io.observe(heroCta);
+    if(sticky && heroCta){
+      // 位置を直接測って判定する（IntersectionObserver だけに頼ると、環境によって発火せず出ないことがある）
+      var updateSticky = function(){
+        var r = heroCta.getBoundingClientRect();
+        var heroCtaInView = r.bottom > 72 && r.top < window.innerHeight;
+        sticky.classList.toggle("is-visible", !heroCtaInView);
+      };
+      var lastRun = 0, pending = null;
+      var onScroll = function(){
+        var now = Date.now();
+        if(now - lastRun > 80){ lastRun = now; updateSticky(); }
+        clearTimeout(pending);
+        pending = setTimeout(function(){ lastRun = Date.now(); updateSticky(); }, 120);
+      };
+      window.addEventListener("scroll", onScroll, {passive:true});
+      window.addEventListener("resize", onScroll);
+      window.addEventListener("load", updateSticky);
+      updateSticky();
+      if("IntersectionObserver" in window){
+        var io = new IntersectionObserver(function(){ updateSticky(); }, {threshold: 0, rootMargin: "-72px 0px 0px 0px"});
+        io.observe(heroCta);
+      }
     }
   }catch(e){ if(window.console && console.warn) console.warn("[lp.js] sticky", e); }
 

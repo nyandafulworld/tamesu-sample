@@ -192,3 +192,8 @@
   .p-product-priceBar__amount small{font-family:var(--f-mono);font-size:10.5px;font-weight:400;color:var(--c-ink-3);margin-left:2px;}
   .p-product-priceBar .c-btn{padding:11px 20px;font-size:11.5px;}
 }
+
+/* スマホ：下部固定の料金バーの分だけフッター下に余白を足し、最下部のクレジットがバーに隠れないようにする */
+@media(max-width:599px){
+  #page-product ~ .c-footer{padding-bottom:84px;}
+}

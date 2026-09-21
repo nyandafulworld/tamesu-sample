@@ -90,6 +90,18 @@
   }
   .p-admin-nav__item.is-current{border-bottom-color:var(--c-amber-deep);}
 }
+@media(max-width:599px){
+  /* スマホ：3つのタブを等幅にして画面内に収める（右端で見切れさせない） */
+  .p-admin-nav{overflow-x:visible;}
+  .p-admin-nav__item{
+    flex:1 1 0;min-width:0;flex-shrink:1;
+    justify-content:center;text-align:center;
+    padding:10px 4px;gap:4px;
+  }
+  .p-admin-nav__item:hover{padding-left:4px;}
+  .p-admin-nav__no{display:none;}
+  .p-admin-nav__name{font-size:12.5px;letter-spacing:0;}
+}
 
 .p-admin-main{min-width:0;}
 .p-admin-panel{min-width:0;}
